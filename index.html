@@ -1,18 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <head>
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="format-detection" content="telephone=no">
-                <meta name="viewport" content="width=device-width initial-scale=1,user-scalable = 0">
-                <title>川大疫情防控每日报系统</title>
-        <link type="image/png"  href='https://imgwfw.scu.edu.cn/image/0/024ff2c1ac4d2662cde5a8546ed9308c.png' rel="shortcut icon">
-        <link rel="stylesheet" href="/wap/css/common.css">
-        <link href="/widgets/photoSwipe/css/photoswipe.css" rel="stylesheet">
-        <link href="/widgets/photoSwipe/css/default-skin.css" rel="stylesheet">
 
-        <!-- <style type="text/css">
+<head>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width initial-scale=1,user-scalable = 0">
+    <title>川大疫情防控每日报系统</title>
+    <link type="image/png" href='https://imgwfw.scu.edu.cn/image/0/024ff2c1ac4d2662cde5a8546ed9308c.png'
+        rel="shortcut icon">
+    <link rel="stylesheet" href="/wap/css/common.css">
+    <link href="/widgets/photoSwipe/css/photoswipe.css" rel="stylesheet">
+    <link href="/widgets/photoSwipe/css/default-skin.css" rel="stylesheet">
+
+    <!-- <style type="text/css">
             html{
                 -webkit-filter: grayscale(100%);
                 filter: grayscale(100%);
@@ -20,46 +21,57 @@
             }
         </style> -->
 
-        <link href="https://wfw.scu.edu.cn/wap/ncov/font/iconfont.css" rel="stylesheet"><link href="https://wfw.scu.edu.cn/wap/ncov/css/default.main.css" rel="stylesheet"><link href="https://wfw.scu.edu.cn/wap/ncov/css/default-skin.css" rel="stylesheet"><link href="https://wfw.scu.edu.cn/wap/ncov/css/iosselect.css" rel="stylesheet"><link href="https://wfw.scu.edu.cn/wap/ncov/css/wcalendar.css" rel="stylesheet"><link href="https://wfw.scu.edu.cn/wap/ncov/css/mescroll.min.css" rel="stylesheet"><link href="https://wfw.scu.edu.cn/thirdparty/nifty/plugins/select2/css/select2.min.css" rel="stylesheet">            <style>
-        .wapcf-btn, .wapat-btn {
+    <link href="https://wfw.scu.edu.cn/wap/ncov/font/iconfont.css" rel="stylesheet">
+    <link href="https://wfw.scu.edu.cn/wap/ncov/css/default.main.css" rel="stylesheet">
+    <link href="https://wfw.scu.edu.cn/wap/ncov/css/default-skin.css" rel="stylesheet">
+    <link href="https://wfw.scu.edu.cn/wap/ncov/css/iosselect.css" rel="stylesheet">
+    <link href="https://wfw.scu.edu.cn/wap/ncov/css/wcalendar.css" rel="stylesheet">
+    <link href="https://wfw.scu.edu.cn/wap/ncov/css/mescroll.min.css" rel="stylesheet">
+    <link href="https://wfw.scu.edu.cn/thirdparty/nifty/plugins/select2/css/select2.min.css" rel="stylesheet">
+    <style>
+        .wapcf-btn,
+        .wapat-btn {
             background: #4285f4;
         }
+
         .wapcf-btn-qx {
             background: #d0d0d0 !important;
         }
-        div.show{
+
+        div.show {
             background: #fff;
-            color:#333;
+            color: #333;
             font-size: 13px;
             position: fixed;
-            top:200px;
-            left:50%;
-            border-radius:2px;
-            transform: translate(-50%,0);
+            top: 200px;
+            left: 50%;
+            border-radius: 2px;
+            transform: translate(-50%, 0);
             opacity: 1;
             transition: all 1s ease;
-            z-index:999;
+            z-index: 999;
             /*width: calc(100% - 80px);*/
         }
 
-        .alert{
+        .alert {
             position: fixed;
             left: 0;
             bottom: 0;
             right: 0;
             top: 0;
-            background: rgba(49,49,49,0.8);
+            background: rgba(49, 49, 49, 0.8);
             z-index: 1000;
             margin: 0 auto;
         }
-        .alert div{
+
+        .alert div {
             background: #fff;
             width: 70%;
             margin: 100px auto;
-            padding:20px;
+            padding: 20px;
         }
 
-        .alert div p span{
+        .alert div p span {
             display: block;
             color: #333;
             height: 43px;
@@ -68,15 +80,17 @@
             display: flex;
             justify-content: center;
         }
-        .alert div p span.hei.cnu-hint{
-            line-height:38px;
+
+        .alert div p span.hei.cnu-hint {
+            line-height: 38px;
         }
-        .alert div p span:nth-child(2){
-            line-height:30px;
+
+        .alert div p span:nth-child(2) {
+            line-height: 30px;
             color: #878787;
         }
 
-        .alert div a{
+        .alert div a {
             display: block;
             margin: .8rem .3733333333rem .5333333333rem;
             background: #4285f4;
@@ -88,7 +102,8 @@
             display: flex;
             justify-content: center;
         }
-        .hcqbtn-wrap{
+
+        .hcqbtn-wrap {
             align-items: center;
             display: flex;
             justify-content: center;
@@ -97,7 +112,7 @@
         }
 
 
-        .hcqbtn{
+        .hcqbtn {
             flex: 1;
             color: #333;
             font-size: .4rem;
@@ -108,11 +123,13 @@
             width: 33%;
 
         }
-        .hcqbtn.sfgwchoose{
+
+        .hcqbtn.sfgwchoose {
             /*flex: inherit;
             width: 60px;*/
         }
-        input.hcqbtn{
+
+        input.hcqbtn {
             box-sizing: border-box;
             padding-left: 5px;
             padding: .24rem .3733333333rem 0.24rem 5px;
@@ -122,971 +139,1241 @@
             height: .88rem;
 
         }
-        .hcqbtn-wrap>.hcqbtn:last-child{
+
+        .hcqbtn-wrap>.hcqbtn:last-child {
             margin-right: 0;
         }
-        .select2-container{
+
+        .select2-container {
             width: 50% !important;
             margin-right: 10px;
             height: .88rem;
         }
-        [name=cfgj]+.select2-container{
+
+        [name=cfgj]+.select2-container {
             width: 100% !important;
             margin-right: 10px;
             height: .88rem;
         }
+
         [v-cloak] {
             display: none !important;
         }
     </style>
-<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=729923f88542d91590470f613adb27b5&plugin=AMap.Driving"></script>
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?48b682d4885d22a90111e46b972e3268";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-        <script src="/thirdparty/nifty/js/jquery.min.js"></script>
-                <script src="/thirdparty/vuejs/v2.1.10/vue.min.js"></script>
-        <script src="/wap/js/common.js"></script>
-        <script src="/js/face.js"></script>
-        <script src="/widgets/photoSwipe/js/photoswipe.min.js"></script>
-        <script src="/widgets/photoSwipe/js/photoswipe-ui-default.min.js"></script>
-                        <!--upload, datepicker, ueditor, baidutemplate, jquery-ui, -->
-    </head>
-    
-    <body class="">
-                
-<div class="item-buydate form-detail2" style="display: block;">
-    <div>
-        <div class="form-detail form-detail2 item-buydate">
-            <section>
-                <div class="form-detail-img"><img src="https://imgwfw.scu.edu.cn/image/8/ebf49cd0d5f658e79876d6c2eef32696.jpg" class="detail-img"></div>
-                <div class="form-detail-desc">
-                    <div>
-                        <div><p>
-                                温馨提示： 不外出、不聚集、不吃野味， 戴口罩、勤洗手、开窗通风、发热就诊
-                            </p></div>
+    <script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=1.4.15&key=729923f88542d91590470f613adb27b5&plugin=AMap.Driving"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?48b682d4885d22a90111e46b972e3268";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script src="/thirdparty/nifty/js/jquery.min.js"></script>
+    <script src="/thirdparty/vuejs/v2.1.10/vue.min.js"></script>
+    <script src="/wap/js/common.js"></script>
+    <script src="/js/face.js"></script>
+    <script src="/widgets/photoSwipe/js/photoswipe.min.js"></script>
+    <script src="/widgets/photoSwipe/js/photoswipe-ui-default.min.js"></script>
+    <!--upload, datepicker, ueditor, baidutemplate, jquery-ui, -->
+</head>
+
+<body class="">
+
+    <div class="item-buydate form-detail2" style="display: block;">
+        <div>
+            <div class="form-detail form-detail2 item-buydate">
+                <section>
+                    <div class="form-detail-img"><img
+                            src="https://imgwfw.scu.edu.cn/image/8/ebf49cd0d5f658e79876d6c2eef32696.jpg"
+                            class="detail-img"></div>
+                    <div class="form-detail-desc">
+                        <div>
+                            <div>
+                                <p>
+                                    温馨提示： 不外出、不聚集、不吃野味， 戴口罩、勤洗手、开窗通风、发热就诊
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <header class="tabbar">
-                    <a href="javascript:;" class="tab active">每日上报</a>
-                    <a href="/ncov/wap/default/recently" class="tab">基本信息</a>
-                </header>
-                <div class="form-detail-desc-line"></div>
-                <div class="form">
-                    <ul>
-                        <li>
-                            <div class="text">
-                                <span>今日日期<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
-                                <input v-model="date" readonly type="text" placeholder=""></div>
-                        </li>
-                        <li>
-                            <div class="text">
-                                <span>姓名<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
-                                <input v-model="realname" readonly type="text" placeholder=""></div>
-                        </li>
-                        <li>
-                            <div class="text">
-                                <span>学工号<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
-                                <input v-model="number" readonly type="text" placeholder=""></div>
-                        </li>
-                        <li>
-                            <div name="sfzx" class="radio"><span>今日是否在校？<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="setSfzx(1)"><span :class="{active: info.sfzx==1}"><i></i></span> <span>是</span></div>
-                                    <div @click="setSfzx(0)"><span :class="{active: info.sfzx==0}"><i></i></span> <span>否</span></div>
-                                </div>
-                            </div>
-                        </li>
-
-                                                <li v-if="info.sfzx == 0">
-                            <div name="bzxyy" class="radio"><span>不在校原因：<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.bzxyy='境外交流学习'"><span :class="{active: info.bzxyy=='境外交流学习'}"><i></i></span> <span>境外交流学习</span></div>
-                                    <div @click="info.bzxyy='实习'"><span :class="{active: info.bzxyy=='实习'}"><i></i></span> <span>实习</span></div>
-                                    <div @click="info.bzxyy='回家'"><span :class="{active: info.bzxyy=='回家'}"><i></i></span> <span>回家</span></div>
-                                    <div @click="info.bzxyy='出差'"><span :class="{active: info.bzxyy=='出差'}"><i></i></span> <span>出差</span></div>
-                                    <div @click="info.bzxyy='生病住院'"><span :class="{active: info.bzxyy=='生病住院'}"><i></i></span> <span>生病住院</span></div>
-                                    <div @click="info.bzxyy='其他事假'"><span :class="{active: info.bzxyy=='其他事假'}"><i></i></span> <span>其他事假</span></div>
-                                </div>
-                            </div>
-                        </li>
-                        
-
-                        <li v-if="info.sfzx == 1">
-                            <div name="szxqmc" class="radio"><span>所在校区<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.szxqmc='华西校区'"><span :class="{active: info.szxqmc=='华西校区'}"><i></i></span> <span>华西校区</span></div>
-                                    <div @click="info.szxqmc='江安校区'"><span :class="{active: info.szxqmc=='江安校区'}"><i></i></span> <span>江安校区</span></div>
-                                    <div @click="info.szxqmc='望江校区'"><span :class="{active: info.szxqmc=='望江校区'}"><i></i></span> <span>望江校区</span></div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li v-if="showFxyy">
-                            <div class="multiText"><span>返校原因<i class="icon iconfont icon-shuoming"></i></span>
-                                <div><textarea v-model="info.fxyy" name="fxyy" rows="" cols="" placeholder=""></textarea></div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div name="sfzgn" class="radio"><span>所在地点<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="setSfzgn(1)"><span :class="{active: sfzgn==1}"><i></i></span> <span>中国大陆</span></div>
-                                    <div @click="setSfzgn(0)"><span :class="{active: sfzgn==0}"><i></i></span> <span>港澳台或国外</span></div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li v-show="!ipCtrl1 && sfzgn == 0" name="dwszgj">
-                            <div class="text" @click="mapInit()">
-                                <span>所在地点（请打开手机位置功能，并在手机权限设置中选择允许访问位置信息）<i class="icon iconfont icon-shuoming"></i></span>
-                                <input name="szgjcs" v-model="info.szgjcs" readonly type="text" placeholder="点击获取地理位置"></div>
-                        </li>
-                        <li v-show="ipCtrl1 && sfzgn == 0">
-                            <div class="text">
-                                <div class="hcqbtn-wrap">
-                                    <select class="hcqbtn" v-model='info.szgj' name="szgj" id="szgj">
-                                        <option value="">请选择所在地区/国家</option>
-                                        <option v-for='p in country' :value="p.name">{{p.name}} {{p.ename}}</option>
-                                    </select>
-                                    <input v-model="info.szcs" type="text" placeholder="所在城市" class="hcqbtn" name="szcs">
-
-                                </div>
-                            </div>
-                        </li>
-
-                        <li v-show="sfzgn == 1">
-                            <div name="area" class="text" style="cursor: pointer" @click="getLocation()">
-                                <span>所在地点（请打开手机位置功能，并在手机权限设置中选择允许微信访问位置信息）<i class="icon iconfont icon-shuoming"></i></span>
-                                <input v-model="info.area" readonly type="text" placeholder="点击获取地理位置"></div>
-                        </li>
-                        <li>
-                            <div name="zgfxdq" class="radio"><span>今日是否在中高风险地区？（中高风险地区信息可通过国务院客户端小程序实时查询）<i class="icon iconfont icon-shuoming"></i></span>
-                                <div>
-                                    <div @click="info.zgfxdq=1"><span :class="{active: info.zgfxdq==1}"><i></i></span> <span>是</span></div>
-                                    <div @click="info.zgfxdq='0'"><span :class="{active: info.zgfxdq===0 || info.zgfxdq==='0'}"><i></i></span> <span>否</span></div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li v-if="info.ismoved == 1">
-                            <div name="bztcyy" class="radio"><span>当前地点与上次不在同一城市，原因如下<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.bztcyy=2"><span :class="{active: info.bztcyy==2}"><i></i></span> <span>探亲</span></div>
-                                    <div @click="info.bztcyy=3"><span :class="{active: info.bztcyy==3}"><i></i></span> <span>旅游</span></div>
-                                    <div @click="info.bztcyy=4"><span :class="{active: info.bztcyy==4}"><i></i></span> <span>回家</span></div>
-                                    <div @click="info.bztcyy=5"><span :class="{active: info.bztcyy==5}"><i></i></span> <span>出差</span></div>
-                                    <div @click="info.bztcyy=1"><span :class="{active: info.bztcyy==1}"><i></i></span> <span>其他</span></div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div name="tw" class="radio"><span>今日体温范围<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.tw=1"><span :class="{active: info.tw==1}"><i></i></span> <span>35℃以下</span></div>
-                                    <div @click="info.tw=2"><span :class="{active: info.tw==2}"><i></i></span> <span>35℃-36.5℃</span></div>
-                                    <div @click="info.tw=3"><span :class="{active: info.tw==3}"><i></i></span> <span>36.6℃-36.9℃</span></div>
-                                    <div @click="info.tw=4"><span :class="{active: info.tw==4}"><i></i></span> <span>37℃-37.3℃</span></div>
-                                    <div @click="info.tw=5"><span :class="{active: info.tw==5}"><i></i></span> <span>37.4℃-38℃</span></div>
-                                    <div @click="info.tw=6"><span :class="{active: info.tw==6}"><i></i></span> <span>38.1℃-38.5℃</span></div>
-                                    <div @click="info.tw=7"><span :class="{active: info.tw==7}"><i></i></span> <span>38.6℃-39℃</span></div>
-                                    <div @click="info.tw=8"><span :class="{active: info.tw==8}"><i></i></span> <span>39.1℃-40℃</span></div>
-                                    <div @click="info.tw=9"><span :class="{active: info.tw==9}"><i></i></span> <span>40.1℃以上</span></div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div name="sfcxtz" class="radio"><span>今日是否出现发热、乏力、干咳、呼吸困难等症状？<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.sfcxtz=1"><span :class="{active: info.sfcxtz==1}"><i></i></span> <span>是</span></div>
-                                    <div @click="info.sfcxtz=0"><span :class="{active: info.sfcxtz==0}"><i></i></span> <span>否</span></div>
-                                </div>
-                            </div>
-                        </li>
-                        <template v-if="info.sfcxtz == 1">
+                    <header class="tabbar">
+                        <a href="javascript:;" class="tab active">每日上报</a>
+                        <a href="/ncov/wap/default/recently" class="tab">基本信息</a>
+                    </header>
+                    <div class="form-detail-desc-line"></div>
+                    <div class="form">
+                        <ul>
                             <li>
-                                <div name="sfyyjc" class="radio"><span>是否到相关医院或门诊检查？<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                                <div class="text">
+                                    <span>今日日期<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
+                                    <input v-model="date" readonly type="text" placeholder=""></div>
+                            </li>
+                            <li>
+                                <div class="text">
+                                    <span>姓名<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
+                                    <input v-model="realname" readonly type="text" placeholder=""></div>
+                            </li>
+                            <li>
+                                <div class="text">
+                                    <span>学工号<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
+                                    <input v-model="number" readonly type="text" placeholder=""></div>
+                            </li>
+                            <li>
+                                <div name="sfzx" class="radio"><span>今日是否在校？<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
                                     <div>
-                                        <div @click="info.sfyyjc=1"><span :class="{active: info.sfyyjc==1}"><i></i></span> <span>是</span></div>
-                                        <div @click="info.sfyyjc=0"><span :class="{active: info.sfyyjc==0}"><i></i></span> <span>否</span></div>
+                                        <div @click="setSfzx(1)"><span :class="{active: info.sfzx==1}"><i></i></span>
+                                            <span>是</span></div>
+                                        <div @click="setSfzx(0)"><span :class="{active: info.sfzx==0}"><i></i></span>
+                                            <span>否</span></div>
                                     </div>
                                 </div>
                             </li>
 
-                            <template  v-if="info.sfyyjc==1">
+                            <li v-if="info.sfzx == 0">
+                                <div name="bzxyy" class="radio"><span>不在校原因：<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="info.bzxyy='境外交流学习'"><span
+                                                :class="{active: info.bzxyy=='境外交流学习'}"><i></i></span>
+                                            <span>境外交流学习</span></div>
+                                        <div @click="info.bzxyy='实习'"><span
+                                                :class="{active: info.bzxyy=='实习'}"><i></i></span> <span>实习</span></div>
+                                        <div @click="info.bzxyy='回家'"><span
+                                                :class="{active: info.bzxyy=='回家'}"><i></i></span> <span>回家</span></div>
+                                        <div @click="info.bzxyy='出差'"><span
+                                                :class="{active: info.bzxyy=='出差'}"><i></i></span> <span>出差</span></div>
+                                        <div @click="info.bzxyy='生病住院'"><span
+                                                :class="{active: info.bzxyy=='生病住院'}"><i></i></span> <span>生病住院</span>
+                                        </div>
+                                        <div @click="info.bzxyy='其他事假'"><span
+                                                :class="{active: info.bzxyy=='其他事假'}"><i></i></span> <span>其他事假</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+
+                            <li v-if="info.sfzx == 1">
+                                <div name="szxqmc" class="radio"><span>所在校区<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="info.szxqmc='华西校区'"><span
+                                                :class="{active: info.szxqmc=='华西校区'}"><i></i></span> <span>华西校区</span>
+                                        </div>
+                                        <div @click="info.szxqmc='江安校区'"><span
+                                                :class="{active: info.szxqmc=='江安校区'}"><i></i></span> <span>江安校区</span>
+                                        </div>
+                                        <div @click="info.szxqmc='望江校区'"><span
+                                                :class="{active: info.szxqmc=='望江校区'}"><i></i></span> <span>望江校区</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li v-if="showFxyy">
+                                <div class="multiText"><span>返校原因<i class="icon iconfont icon-shuoming"></i></span>
+                                    <div><textarea v-model="info.fxyy" name="fxyy" rows="" cols=""
+                                            placeholder=""></textarea></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div name="sfzgn" class="radio"><span>所在地点<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="setSfzgn(1)"><span :class="{active: sfzgn==1}"><i></i></span>
+                                            <span>中国大陆</span></div>
+                                        <div @click="setSfzgn(0)"><span :class="{active: sfzgn==0}"><i></i></span>
+                                            <span>港澳台或国外</span></div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li v-show="!ipCtrl1 && sfzgn == 0" name="dwszgj">
+                                <div class="text" @click="mapInit()">
+                                    <span>所在地点（请打开手机位置功能，并在手机权限设置中选择允许访问位置信息）<i
+                                            class="icon iconfont icon-shuoming"></i></span>
+                                    <input name="szgjcs" v-model="info.szgjcs" readonly type="text"
+                                        placeholder="点击获取地理位置"></div>
+                            </li>
+                            <li v-show="ipCtrl1 && sfzgn == 0">
+                                <div class="text">
+                                    <div class="hcqbtn-wrap">
+                                        <select class="hcqbtn" v-model='info.szgj' name="szgj" id="szgj">
+                                            <option value="">请选择所在地区/国家</option>
+                                            <option v-for='p in country' :value="p.name">{{p.name}} {{p.ename}}</option>
+                                        </select>
+                                        <input v-model="info.szcs" type="text" placeholder="所在城市" class="hcqbtn"
+                                            name="szcs">
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li v-show="sfzgn == 1">
+                                <div name="area" class="text" style="cursor: pointer" @click="getLocation()">
+                                    <span>所在地点（请打开手机位置功能，并在手机权限设置中选择允许微信访问位置信息）<i
+                                            class="icon iconfont icon-shuoming"></i></span>
+                                    <input v-model="info.area" readonly type="text" placeholder="点击获取地理位置"></div>
+                            </li>
+                            <li>
+                                <div name="zgfxdq" class="radio"><span>今日是否在中高风险地区？（中高风险地区信息可通过国务院客户端小程序实时查询）<i
+                                            class="icon iconfont icon-shuoming"></i></span>
+                                    <div>
+                                        <div @click="info.zgfxdq=1"><span
+                                                :class="{active: info.zgfxdq==1}"><i></i></span> <span>是</span></div>
+                                        <div @click="info.zgfxdq='0'"><span
+                                                :class="{active: info.zgfxdq===0 || info.zgfxdq==='0'}"><i></i></span>
+                                            <span>否</span></div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li v-if="info.ismoved == 1">
+                                <div name="bztcyy" class="radio"><span>当前地点与上次不在同一城市，原因如下<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="info.bztcyy=2"><span
+                                                :class="{active: info.bztcyy==2}"><i></i></span> <span>探亲</span></div>
+                                        <div @click="info.bztcyy=3"><span
+                                                :class="{active: info.bztcyy==3}"><i></i></span> <span>旅游</span></div>
+                                        <div @click="info.bztcyy=4"><span
+                                                :class="{active: info.bztcyy==4}"><i></i></span> <span>回家</span></div>
+                                        <div @click="info.bztcyy=5"><span
+                                                :class="{active: info.bztcyy==5}"><i></i></span> <span>出差</span></div>
+                                        <div @click="info.bztcyy=1"><span
+                                                :class="{active: info.bztcyy==1}"><i></i></span> <span>其他</span></div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div name="tw" class="radio"><span>今日体温范围<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="info.tw=1"><span :class="{active: info.tw==1}"><i></i></span>
+                                            <span>35℃以下</span></div>
+                                        <div @click="info.tw=2"><span :class="{active: info.tw==2}"><i></i></span>
+                                            <span>35℃-36.5℃</span></div>
+                                        <div @click="info.tw=3"><span :class="{active: info.tw==3}"><i></i></span>
+                                            <span>36.6℃-36.9℃</span></div>
+                                        <div @click="info.tw=4"><span :class="{active: info.tw==4}"><i></i></span>
+                                            <span>37℃-37.3℃</span></div>
+                                        <div @click="info.tw=5"><span :class="{active: info.tw==5}"><i></i></span>
+                                            <span>37.4℃-38℃</span></div>
+                                        <div @click="info.tw=6"><span :class="{active: info.tw==6}"><i></i></span>
+                                            <span>38.1℃-38.5℃</span></div>
+                                        <div @click="info.tw=7"><span :class="{active: info.tw==7}"><i></i></span>
+                                            <span>38.6℃-39℃</span></div>
+                                        <div @click="info.tw=8"><span :class="{active: info.tw==8}"><i></i></span>
+                                            <span>39.1℃-40℃</span></div>
+                                        <div @click="info.tw=9"><span :class="{active: info.tw==9}"><i></i></span>
+                                            <span>40.1℃以上</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div name="sfcxtz" class="radio"><span>今日是否出现发热、乏力、干咳、呼吸困难等症状？<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="info.sfcxtz=1"><span
+                                                :class="{active: info.sfcxtz==1}"><i></i></span> <span>是</span></div>
+                                        <div @click="info.sfcxtz=0"><span
+                                                :class="{active: info.sfcxtz==0}"><i></i></span> <span>否</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <template v-if="info.sfcxtz == 1">
                                 <li>
-                                    <div name="jcjgqr" class="radio"><span>检查结果属于以下哪种情况<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div name="sfyyjc" class="radio"><span>是否到相关医院或门诊检查？<i
+                                                class="icon iconfont icon-shuoming"></i><em></em></span>
                                         <div>
-                                            <div @click="info.jcjgqr=1"><span :class="{active: info.jcjgqr==1}"><i></i></span> <span>疑似感染</span></div>
-                                            <div @click="info.jcjgqr=2"><span :class="{active: info.jcjgqr==2}"><i></i></span> <span>确诊感染</span></div>
-                                            <div @click="info.jcjgqr=3"><span :class="{active: info.jcjgqr==3}"><i></i></span> <span>其他</span></div>
+                                            <div @click="info.sfyyjc=1"><span
+                                                    :class="{active: info.sfyyjc==1}"><i></i></span> <span>是</span>
+                                            </div>
+                                            <div @click="info.sfyyjc=0"><span
+                                                    :class="{active: info.sfyyjc==0}"><i></i></span> <span>否</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
 
-                                <li v-if="info.jcjgqr == 2 || info.jcjgqr == 1">
-                                    <div class="multiText"><span>观察或诊疗情况<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
-                                        <div><textarea v-model="info.jcjg" name="jcjg" rows="" cols="" placeholder=""></textarea></div>
-                                    </div>
-                                </li>
-
-                                <li v-if="info.jcjgqr == 3">
-                                    <div class="multiText"><span>检查结果<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
-                                        <div><textarea v-model="info.jcjg" name="jcjg" rows="" cols="" placeholder=""></textarea></div>
-                                    </div>
-                                </li>
-                            </template>
-                        </template>
-
-
-                        <li>
-                            <div name="sfjcbh" class="radio"><span>今日是否接触无症状感染/疑似/确诊人群？<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.sfjcbh=1"><span :class="{active: info.sfjcbh==1}"><i></i></span> <span>是</span></div>
-                                    <div @click="info.sfjcbh=0"><span :class="{active: info.sfjcbh==0}"><i></i></span> <span>否</span></div>
-                                </div>
-                            </div>
-                        </li>
-                        <li v-if="info.sfjcbh==1">
-                            <div name="jcbhlx" class="radio"><span>接触人群类型<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.jcbhlx='疑似'"><span :class="{active: info.jcbhlx=='疑似'}"><i></i></span> <span>疑似</span></div>
-                                    <div @click="info.jcbhlx='确诊'"><span :class="{active: info.jcbhlx=='确诊'}"><i></i></span> <span>确诊</span></div>
-                                </div>
-                            </div>
-                        </li>
-                        <li v-if="info.sfjcbh==1">
-                            <div class="text">
-                                <span>接触时间<i class="icon iconfont icon-shuoming"></i></span>
-                                <input name="jcbhrq" v-model="info.jcbhrq" type="date" placeholder=""></div>
-                        </li>
-
-                        <li>
-                            <div name="mjry" class="radio"><span>今日是否接触密接人员？<i class="icon iconfont icon-shuoming"></i></span>
-                                <div>
-                                    <div @click="info.mjry=1"><span :class="{active: info.mjry==1}"><i></i></span> <span>是</span></div>
-                                    <div @click="info.mjry='0'"><span :class="{active: info.mjry===0 || info.mjry==='0'}"><i></i></span> <span>否</span></div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div name="csmjry" class="radio"><span>近14日内本人/共同居住者是否去过疫情发生场所（市场、单位、小区等）或与场所人员有过密切接触？<i class="icon iconfont icon-shuoming"></i></span>
-                                <div>
-                                    <div @click="info.csmjry=1"><span :class="{active: info.csmjry==1}"><i></i></span> <span>是</span></div>
-                                    <div @click="info.csmjry='0'"><span :class="{active: info.csmjry===0 || info.csmjry==='0'}"><i></i></span> <span>否</span></div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div name="sfcyglq" class="radio"><span>是否处于观察期？<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.sfcyglq=1"><span :class="{active: info.sfcyglq==1}"><i></i></span> <span>是</span></div>
-                                    <div @click="info.sfcyglq=0"><span :class="{active: info.sfcyglq==0}"><i></i></span> <span>否</span></div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li v-if="info.sfcyglq==1">
-                            <div name="gllx" class="radio"><span>观察场所<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.gllx='学校家属院'"><span :class="{active: info.gllx=='学校家属院'}"><i></i></span> <span>学校家属院</span></div>
-                                    <div @click="info.gllx='学校集中隔离点'"><span :class="{active: info.gllx=='学校集中隔离点'}"><i></i></span> <span>学校集中隔离点</span></div>
-                                    <div @click="info.gllx='成都校外居住地'"><span :class="{active: info.gllx=='成都校外居住地'}"><i></i></span> <span>成都校外居住地</span></div>
-                                    <div @click="info.gllx='蓉外地区集中隔离点'"><span :class="{active: info.gllx=='蓉外地区集中隔离点'}"><i></i></span> <span>蓉外地区集中隔离点</span></div>
-                                </div>
-                            </div>
-                        </li>
-                        <li v-if="info.sfcyglq==1">
-                            <div class="text">
-                                <span>观察开始时间<i class="icon iconfont icon-shuoming"></i></span>
-                                <input name="glksrq" v-model="info.glksrq" type="date" placeholder=""></div>
-                        </li>
-
-                        <li>
-                            <div name="sfjzxgym" class="radio"><span>是否接种过新冠疫苗？<i class="icon iconfont icon-shuoming"></i></span>
-                                <div>
-                                    <div @click="info.sfjzxgym=1"><span :class="{active: info.sfjzxgym==1}"><i></i></span> <span>是</span></div>
-                                    <div @click="info.sfjzxgym='0'"><span :class="{active: info.sfjzxgym===0 || info.sfjzxgym==='0'}"><i></i></span> <span>否</span></div>
-                                </div>
-                            </div>
-                        </li>
-                        <li v-if="info.sfjzxgym==1">
-                            <div class="text">
-                                <span>接种第一剂新冠疫苗时间<i class="icon iconfont icon-shuoming"></i></span>
-                                <input name="jzxgymrq" v-model="info.jzxgymrq" type="date" placeholder=""></div>
-                        </li>
-                        <li>
-                            <div name="sfjzdezxgym" class="radio"><span>是否接种第二剂新冠疫苗？<i class="icon iconfont icon-shuoming"></i></span>
-                                <div>
-                                    <div @click="info.sfjzdezxgym=1"><span :class="{active: info.sfjzdezxgym==1}"><i></i></span> <span>是</span></div>
-                                    <div @click="info.sfjzdezxgym='0'"><span :class="{active: info.sfjzdezxgym===0 || info.sfjzdezxgym==='0'}"><i></i></span> <span>否</span></div>
-                                </div>
-                            </div>
-                        </li>
-                        <li v-if="info.sfjzdezxgym==1">
-                            <div class="text">
-                                <span>接种第二剂新冠疫苗时间<i class="icon iconfont icon-shuoming"></i></span>
-                                <input name="jzdezxgymrq" v-model="info.jzdezxgymrq" type="date" placeholder=""></div>
-                        </li>
-
-
-                        <li>
-                            <div name="sfcxzysx" class="radio"><span>是否有任何与疫情相关的， 值得注意的情况？<i class="icon iconfont icon-shuoming"></i><em></em></span>
-                                <div>
-                                    <div @click="info.sfcxzysx=1"><span :class="{active: info.sfcxzysx==1}"><i></i></span> <span>是</span></div>
-                                    <div @click="info.sfcxzysx=0"><span :class="{active: info.sfcxzysx==0}"><i></i></span> <span>否</span></div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li v-if="info.sfcxzysx==1">
-                            <div class="multiText"><span>情况说明<i class="icon iconfont icon-shuoming"></i></span>
-                                <div><textarea v-model="info.qksm" name="qksm" rows="" cols="" placeholder=""></textarea></div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="multiText"><span>其他信息<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
-                                <div><textarea v-model="info.remark" name="remark" rows="" cols="" placeholder=""></textarea></div>
-                            </div>
-                        </li>
-
-
-                    </ul>
-                </div>
-                <div class="list-box">
-                    <div class="footers"><a @click="confirm()" :class="{'wapcf-btn-qx': hasFlag == 1}" >提交信息</a>
+                                <template v-if="info.sfyyjc==1">
+                                    <li>
+                                        <div name="jcjgqr" class="radio"><span>检查结果属于以下哪种情况<i
+                                                    class="icon iconfont icon-shuoming"></i><em></em></span>
+                                            <div>
+                                                <div @click="info.jcjgqr=1"><span
+                                                        :class="{active: info.jcjgqr==1}"><i></i></span>
+                                                    <span>疑似感染</span></div>
+                                                <div @click="info.jcjgqr=2"><span
+                                                        :class="{active: info.jcjgqr==2}"><i></i></span>
+                                                    <span>确诊感染</span></div>
+                                                <div @click="info.jcjgqr=3"><span
+                                                        :class="{active: info.jcjgqr==3}"><i></i></span> <span>其他</span>
+                                                </div>
                                             </div>
-                </div>
-            </section>
+                                        </div>
+                                    </li>
+
+                                    <li v-if="info.jcjgqr == 2 || info.jcjgqr == 1">
+                                        <div class="multiText"><span>观察或诊疗情况<i style="display: none;"
+                                                    class="icon iconfont icon-shuoming"></i></span>
+                                            <div><textarea v-model="info.jcjg" name="jcjg" rows="" cols=""
+                                                    placeholder=""></textarea></div>
+                                        </div>
+                                    </li>
+
+                                    <li v-if="info.jcjgqr == 3">
+                                        <div class="multiText"><span>检查结果<i style="display: none;"
+                                                    class="icon iconfont icon-shuoming"></i></span>
+                                            <div><textarea v-model="info.jcjg" name="jcjg" rows="" cols=""
+                                                    placeholder=""></textarea></div>
+                                        </div>
+                                    </li>
+                                </template>
+                            </template>
+
+
+                            <li>
+                                <div name="sfjcbh" class="radio"><span>今日是否接触无症状感染/疑似/确诊人群？<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="info.sfjcbh=1"><span
+                                                :class="{active: info.sfjcbh==1}"><i></i></span> <span>是</span></div>
+                                        <div @click="info.sfjcbh=0"><span
+                                                :class="{active: info.sfjcbh==0}"><i></i></span> <span>否</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li v-if="info.sfjcbh==1">
+                                <div name="jcbhlx" class="radio"><span>接触人群类型<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="info.jcbhlx='疑似'"><span
+                                                :class="{active: info.jcbhlx=='疑似'}"><i></i></span> <span>疑似</span>
+                                        </div>
+                                        <div @click="info.jcbhlx='确诊'"><span
+                                                :class="{active: info.jcbhlx=='确诊'}"><i></i></span> <span>确诊</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li v-if="info.sfjcbh==1">
+                                <div class="text">
+                                    <span>接触时间<i class="icon iconfont icon-shuoming"></i></span>
+                                    <input name="jcbhrq" v-model="info.jcbhrq" type="date" placeholder=""></div>
+                            </li>
+
+                            <li>
+                                <div name="mjry" class="radio"><span>今日是否接触密接人员？<i
+                                            class="icon iconfont icon-shuoming"></i></span>
+                                    <div>
+                                        <div @click="info.mjry=1"><span :class="{active: info.mjry==1}"><i></i></span>
+                                            <span>是</span></div>
+                                        <div @click="info.mjry='0'"><span
+                                                :class="{active: info.mjry===0 || info.mjry==='0'}"><i></i></span>
+                                            <span>否</span></div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div name="csmjry" class="radio"><span>近14日内本人/共同居住者是否去过疫情发生场所（市场、单位、小区等）或与场所人员有过密切接触？<i
+                                            class="icon iconfont icon-shuoming"></i></span>
+                                    <div>
+                                        <div @click="info.csmjry=1"><span
+                                                :class="{active: info.csmjry==1}"><i></i></span> <span>是</span></div>
+                                        <div @click="info.csmjry='0'"><span
+                                                :class="{active: info.csmjry===0 || info.csmjry==='0'}"><i></i></span>
+                                            <span>否</span></div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div name="sfcyglq" class="radio"><span>是否处于观察期？<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="info.sfcyglq=1"><span
+                                                :class="{active: info.sfcyglq==1}"><i></i></span> <span>是</span></div>
+                                        <div @click="info.sfcyglq=0"><span
+                                                :class="{active: info.sfcyglq==0}"><i></i></span> <span>否</span></div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li v-if="info.sfcyglq==1">
+                                <div name="gllx" class="radio"><span>观察场所<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="info.gllx='学校家属院'"><span
+                                                :class="{active: info.gllx=='学校家属院'}"><i></i></span> <span>学校家属院</span>
+                                        </div>
+                                        <div @click="info.gllx='学校集中隔离点'"><span
+                                                :class="{active: info.gllx=='学校集中隔离点'}"><i></i></span>
+                                            <span>学校集中隔离点</span></div>
+                                        <div @click="info.gllx='成都校外居住地'"><span
+                                                :class="{active: info.gllx=='成都校外居住地'}"><i></i></span>
+                                            <span>成都校外居住地</span></div>
+                                        <div @click="info.gllx='蓉外地区集中隔离点'"><span
+                                                :class="{active: info.gllx=='蓉外地区集中隔离点'}"><i></i></span>
+                                            <span>蓉外地区集中隔离点</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li v-if="info.sfcyglq==1">
+                                <div class="text">
+                                    <span>观察开始时间<i class="icon iconfont icon-shuoming"></i></span>
+                                    <input name="glksrq" v-model="info.glksrq" type="date" placeholder=""></div>
+                            </li>
+
+                            <li>
+                                <div name="sfjzxgym" class="radio"><span>是否接种过新冠疫苗？<i
+                                            class="icon iconfont icon-shuoming"></i></span>
+                                    <div>
+                                        <div @click="info.sfjzxgym=1"><span
+                                                :class="{active: info.sfjzxgym==1}"><i></i></span> <span>是</span></div>
+                                        <div @click="info.sfjzxgym='0'"><span
+                                                :class="{active: info.sfjzxgym===0 || info.sfjzxgym==='0'}"><i></i></span>
+                                            <span>否</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li v-if="info.sfjzxgym==1">
+                                <div class="text">
+                                    <span>接种第一剂新冠疫苗时间<i class="icon iconfont icon-shuoming"></i></span>
+                                    <input name="jzxgymrq" v-model="info.jzxgymrq" type="date" placeholder=""></div>
+                            </li>
+                            <li>
+                                <div name="sfjzdezxgym" class="radio"><span>是否接种第二剂新冠疫苗？<i
+                                            class="icon iconfont icon-shuoming"></i></span>
+                                    <div>
+                                        <div @click="info.sfjzdezxgym=1"><span
+                                                :class="{active: info.sfjzdezxgym==1}"><i></i></span> <span>是</span>
+                                        </div>
+                                        <div @click="info.sfjzdezxgym='0'"><span
+                                                :class="{active: info.sfjzdezxgym===0 || info.sfjzdezxgym==='0'}"><i></i></span>
+                                            <span>否</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li v-if="info.sfjzdezxgym==1">
+                                <div class="text">
+                                    <span>接种第二剂新冠疫苗时间<i class="icon iconfont icon-shuoming"></i></span>
+                                    <input name="jzdezxgymrq" v-model="info.jzdezxgymrq" type="date" placeholder="">
+                                </div>
+                            </li>
+
+
+                            <li>
+                                <div name="sfcxzysx" class="radio"><span>是否有任何与疫情相关的， 值得注意的情况？<i
+                                            class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="info.sfcxzysx=1"><span
+                                                :class="{active: info.sfcxzysx==1}"><i></i></span> <span>是</span></div>
+                                        <div @click="info.sfcxzysx=0"><span
+                                                :class="{active: info.sfcxzysx==0}"><i></i></span> <span>否</span></div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li v-if="info.sfcxzysx==1">
+                                <div class="multiText"><span>情况说明<i class="icon iconfont icon-shuoming"></i></span>
+                                    <div><textarea v-model="info.qksm" name="qksm" rows="" cols=""
+                                            placeholder=""></textarea></div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="multiText"><span>其他信息<i style="display: none;"
+                                            class="icon iconfont icon-shuoming"></i></span>
+                                    <div><textarea v-model="info.remark" name="remark" rows="" cols=""
+                                            placeholder=""></textarea></div>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <div class="list-box">
+                        <div class="footers"><a @click="confirm()" :class="{'wapcf-btn-qx': hasFlag == 1}">提交信息</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
-</div>
 
 
-        <script src="https://wfw.scu.edu.cn/wap/ncov/js/country.js?v3"></script><script src="https://wfw.scu.edu.cn/thirdparty/nifty/plugins/select2/js/select2.min.js"></script>        <script type="text/javascript">
-            var def = {"zgfxdq":"0","mjry":"0","csmjry":"0","szxqmc":"","sfjzxgym":"1","jzxgymrq":"2021-08-03","sfjzdezxgym":"0","jzdezxgymrq":"","tw":"2","sfcxtz":"0","sfjcbh":"0","sfcxzysx":"0","qksm":"","sfyyjc":"0","jcjgqr":"0","remark":"","address":"","geo_api_info":"{\"type\":\"complete\",\"position\":{\"Q\":31.59078640408,\"R\":117.87000678168499,\"lng\":117.870007,\"lat\":31.590786},\"location_type\":\"html5\",\"message\":\"Get geolocation success.Convert Success.Get address success.\",\"accuracy\":65,\"isConverted\":true,\"status\":1,\"addressComponent\":{\"citycode\":\"0551\",\"adcode\":\"340181\",\"businessAreas\":[],\"neighborhoodType\":\"\",\"neighborhood\":\"\",\"building\":\"\",\"buildingType\":\"\",\"street\":\"\u4e16\u7eaa\u5927\u9053\",\"streetNumber\":\"16\u53f7\",\"country\":\"\u4e2d\u56fd\",\"province\":\"\u5b89\u5fbd\u7701\",\"city\":\"\u5408\u80a5\u5e02\",\"district\":\"\u5de2\u6e56\u5e02\",\"township\":\"\u5929\u6cb3\u8857\u9053\"},\"formattedAddress\":\"\u5b89\u5fbd\u7701\u5408\u80a5\u5e02\u5de2\u6e56\u5e02\u5929\u6cb3\u8857\u9053\u4e16\u7eaa\u5927\u905316\u53f7\",\"roads\":[],\"crosses\":[],\"pois\":[],\"info\":\"SUCCESS\"}","area":"","province":"\u5b89\u5fbd\u7701","city":"","sfzx":"0","sfjcwhry":"0","sfjchbry":"0","sfcyglq":"0","gllx":"","glksrq":"","jcbhlx":"","jcbhrq":"","bztcyy":"","sftjhb":"0","sftjwh":"0","szcs":"","szgj":"","bzxyy":"\u56de\u5bb6","jcjg":"","hsjcrq":"","hsjcdd":"","hsjcjg":"0","date":"20210819","uid":"2133941","created":1629342746,"jcqzrq":"","sfjcqz":"","szsqsfybl":0,"sfsqhzjkk":0,"sqhzjkkys":"","sfygtjzzfj":0,"gtjzzfjsj":"","id":39724003,"gwszdd":"","sfyqjzgc":"","jrsfqzys":"","jrsfqzfy":""};
+    <script src="https://wfw.scu.edu.cn/wap/ncov/js/country.js?v3"></script>
+    <script src="https://wfw.scu.edu.cn/thirdparty/nifty/plugins/select2/js/select2.min.js"></script>
+    <script type="text/javascript">
+        var def = {
+            "zgfxdq": "0",
+            "mjry": "0",
+            "csmjry": "0",
+            "szxqmc": "",
+            "sfjzxgym": "1",
+            "jzxgymrq": "2021-08-03",
+            "sfjzdezxgym": "0",
+            "jzdezxgymrq": "",
+            "tw": "2",
+            "sfcxtz": "0",
+            "sfjcbh": "0",
+            "sfcxzysx": "0",
+            "qksm": "",
+            "sfyyjc": "0",
+            "jcjgqr": "0",
+            "remark": "",
+            "address": "",
+            "geo_api_info": "{\"type\":\"complete\",\"position\":{\"Q\":31.59078640408,\"R\":117.87000678168499,\"lng\":117.870007,\"lat\":31.590786},\"location_type\":\"html5\",\"message\":\"Get geolocation success.Convert Success.Get address success.\",\"accuracy\":65,\"isConverted\":true,\"status\":1,\"addressComponent\":{\"citycode\":\"0551\",\"adcode\":\"340181\",\"businessAreas\":[],\"neighborhoodType\":\"\",\"neighborhood\":\"\",\"building\":\"\",\"buildingType\":\"\",\"street\":\"\u4e16\u7eaa\u5927\u9053\",\"streetNumber\":\"16\u53f7\",\"country\":\"\u4e2d\u56fd\",\"province\":\"\u5b89\u5fbd\u7701\",\"city\":\"\u5408\u80a5\u5e02\",\"district\":\"\u5de2\u6e56\u5e02\",\"township\":\"\u5929\u6cb3\u8857\u9053\"},\"formattedAddress\":\"\u5b89\u5fbd\u7701\u5408\u80a5\u5e02\u5de2\u6e56\u5e02\u5929\u6cb3\u8857\u9053\u4e16\u7eaa\u5927\u905316\u53f7\",\"roads\":[],\"crosses\":[],\"pois\":[],\"info\":\"SUCCESS\"}",
+            "area": "",
+            "province": "\u5b89\u5fbd\u7701",
+            "city": "",
+            "sfzx": "0",
+            "sfjcwhry": "0",
+            "sfjchbry": "0",
+            "sfcyglq": "0",
+            "gllx": "",
+            "glksrq": "",
+            "jcbhlx": "",
+            "jcbhrq": "",
+            "bztcyy": "",
+            "sftjhb": "0",
+            "sftjwh": "0",
+            "szcs": "",
+            "szgj": "",
+            "bzxyy": "\u56de\u5bb6",
+            "jcjg": "",
+            "hsjcrq": "",
+            "hsjcdd": "",
+            "hsjcjg": "0",
+            "date": "20210819",
+            "uid": "2133941",
+            "created": 1629342746,
+            "jcqzrq": "",
+            "sfjcqz": "",
+            "szsqsfybl": 0,
+            "sfsqhzjkk": 0,
+            "sqhzjkkys": "",
+            "sfygtjzzfj": 0,
+            "gtjzzfjsj": "",
+            "id": 39724003,
+            "gwszdd": "",
+            "sfyqjzgc": "",
+            "jrsfqzys": "",
+            "jrsfqzfy": ""
+        };
         var vm = new Vue({
-        el: '.form-detail2',
-        data: {
-            realname: "胡超",
-            number: '2021223040006',
-            date: '2021-08-20',
-            info: $.extend({
-                zgfxdq:'',
-                mjry:"",
-                csmjry:"",
-                szxqmc:"",
-                sfjzxgym:'',
-                jzxgymrq: '',
-                sfjzdezxgym:'',
-                jzdezxgymrq: '',
-            }, def, {
-                szgjcs: ''
-            }),
-            oldInfo: {"zgfxdq":"0","mjry":"0","csmjry":"0","szxqmc":"","sfjzxgym":"1","jzxgymrq":"20210803","sfjzdezxgym":"0","jzdezxgymrq":"","tw":"2","sfcxtz":"0","sfjcbh":"0","sfcxzysx":"0","qksm":"","sfyyjc":"0","jcjgqr":"0","remark":"","address":"\u5b89\u5fbd\u7701\u5408\u80a5\u5e02\u5de2\u6e56\u5e02\u5929\u6cb3\u8857\u9053\u4e16\u7eaa\u5927\u905316\u53f7","geo_api_info":"{\"type\":\"complete\",\"position\":{\"Q\":31.59078640408,\"R\":117.87000678168499,\"lng\":117.870007,\"lat\":31.590786},\"location_type\":\"html5\",\"message\":\"Get geolocation success.Convert Success.Get address success.\",\"accuracy\":65,\"isConverted\":true,\"status\":1,\"addressComponent\":{\"citycode\":\"0551\",\"adcode\":\"340181\",\"businessAreas\":[],\"neighborhoodType\":\"\",\"neighborhood\":\"\",\"building\":\"\",\"buildingType\":\"\",\"street\":\"\u4e16\u7eaa\u5927\u9053\",\"streetNumber\":\"16\u53f7\",\"country\":\"\u4e2d\u56fd\",\"province\":\"\u5b89\u5fbd\u7701\",\"city\":\"\u5408\u80a5\u5e02\",\"district\":\"\u5de2\u6e56\u5e02\",\"township\":\"\u5929\u6cb3\u8857\u9053\"},\"formattedAddress\":\"\u5b89\u5fbd\u7701\u5408\u80a5\u5e02\u5de2\u6e56\u5e02\u5929\u6cb3\u8857\u9053\u4e16\u7eaa\u5927\u905316\u53f7\",\"roads\":[],\"crosses\":[],\"pois\":[],\"info\":\"SUCCESS\"}","area":"\u5b89\u5fbd\u7701 \u5408\u80a5\u5e02 \u5de2\u6e56\u5e02","province":"\u5b89\u5fbd\u7701","city":"\u5408\u80a5\u5e02","sfzx":"0","sfjcwhry":"0","sfjchbry":"0","sfcyglq":"0","gllx":"","glksrq":"","jcbhlx":"","jcbhrq":"","bztcyy":"","sftjhb":"0","sftjwh":"0","szcs":"","szgj":"","bzxyy":"\u56de\u5bb6","jcjg":"","hsjcrq":"","hsjcdd":"","hsjcjg":"0","date":"20210819","uid":"2133941","created":1629342746,"jcqzrq":"","sfjcqz":"","szsqsfybl":"0","sfsqhzjkk":0,"sqhzjkkys":"","sfygtjzzfj":0,"gtjzzfjsj":"","ismoved":"0","created_uid":0,"id":39724003},
-            tipMsg: '',
-            ajaxLock: false,
-            showFxyy: false,
-            sfzgn: 1,
-            hasFlag: '',
-            setting: {"title":"\u5ddd\u5927\u75ab\u60c5\u9632\u63a7\u6bcf\u65e5\u62a5\u7cfb\u7edf","desc":"\u6e29\u99a8\u63d0\u793a\uff1a \u4e0d\u5916\u51fa\u3001\u4e0d\u805a\u96c6\u3001\u4e0d\u5403\u91ce\u5473\uff0c \u6234\u53e3\u7f69\u3001\u52e4\u6d17\u624b\u3001\u5f00\u7a97\u901a\u98ce\u3001\u53d1\u70ed\u5c31\u8bca","area":"\u84c9","sendmsg":"","img":"image\/8\/ebf49cd0d5f658e79876d6c2eef32696.jpg","copyright":"","notifywid":"4","sms":"0","mp":"1","city":"\u6210\u90fd\u5e02","mpid":"2","templateid":"zH-fyHGwVKGzp0c3Ky7osgaWAeiwrMhIftxoeHpLT9o","notice_num":"4","modify_his":"0"},
-            ipCtrl1: false,
-            country:country,
-        },
-        watch: {
-            'info.area': function() {
-                if(!$.isEmptyObject(this.oldInfo) && (this.info.province + this.info.city != this.oldInfo.province + this.oldInfo.city)) {
-                    this.info.ismoved = 1;
-                }else {
-                    this.info.ismoved = 0;
-                }
+            el: '.form-detail2',
+            data: {
+                realname: "胡超",
+                number: '2021223040006',
+                date: '2021-08-20',
+                info: $.extend({
+                    zgfxdq: '',
+                    mjry: "",
+                    csmjry: "",
+                    szxqmc: "",
+                    sfjzxgym: '',
+                    jzxgymrq: '',
+                    sfjzdezxgym: '',
+                    jzdezxgymrq: '',
+                }, def, {
+                    szgjcs: ''
+                }),
+                oldInfo: {
+                    "zgfxdq": "0",
+                    "mjry": "0",
+                    "csmjry": "0",
+                    "szxqmc": "",
+                    "sfjzxgym": "1",
+                    "jzxgymrq": "20210803",
+                    "sfjzdezxgym": "0",
+                    "jzdezxgymrq": "",
+                    "tw": "2",
+                    "sfcxtz": "0",
+                    "sfjcbh": "0",
+                    "sfcxzysx": "0",
+                    "qksm": "",
+                    "sfyyjc": "0",
+                    "jcjgqr": "0",
+                    "remark": "",
+                    "address": "\u5b89\u5fbd\u7701\u5408\u80a5\u5e02\u5de2\u6e56\u5e02\u5929\u6cb3\u8857\u9053\u4e16\u7eaa\u5927\u905316\u53f7",
+                    "geo_api_info": "{\"type\":\"complete\",\"position\":{\"Q\":31.59078640408,\"R\":117.87000678168499,\"lng\":117.870007,\"lat\":31.590786},\"location_type\":\"html5\",\"message\":\"Get geolocation success.Convert Success.Get address success.\",\"accuracy\":65,\"isConverted\":true,\"status\":1,\"addressComponent\":{\"citycode\":\"0551\",\"adcode\":\"340181\",\"businessAreas\":[],\"neighborhoodType\":\"\",\"neighborhood\":\"\",\"building\":\"\",\"buildingType\":\"\",\"street\":\"\u4e16\u7eaa\u5927\u9053\",\"streetNumber\":\"16\u53f7\",\"country\":\"\u4e2d\u56fd\",\"province\":\"\u5b89\u5fbd\u7701\",\"city\":\"\u5408\u80a5\u5e02\",\"district\":\"\u5de2\u6e56\u5e02\",\"township\":\"\u5929\u6cb3\u8857\u9053\"},\"formattedAddress\":\"\u5b89\u5fbd\u7701\u5408\u80a5\u5e02\u5de2\u6e56\u5e02\u5929\u6cb3\u8857\u9053\u4e16\u7eaa\u5927\u905316\u53f7\",\"roads\":[],\"crosses\":[],\"pois\":[],\"info\":\"SUCCESS\"}",
+                    "area": "\u5b89\u5fbd\u7701 \u5408\u80a5\u5e02 \u5de2\u6e56\u5e02",
+                    "province": "\u5b89\u5fbd\u7701",
+                    "city": "\u5408\u80a5\u5e02",
+                    "sfzx": "0",
+                    "sfjcwhry": "0",
+                    "sfjchbry": "0",
+                    "sfcyglq": "0",
+                    "gllx": "",
+                    "glksrq": "",
+                    "jcbhlx": "",
+                    "jcbhrq": "",
+                    "bztcyy": "",
+                    "sftjhb": "0",
+                    "sftjwh": "0",
+                    "szcs": "",
+                    "szgj": "",
+                    "bzxyy": "\u56de\u5bb6",
+                    "jcjg": "",
+                    "hsjcrq": "",
+                    "hsjcdd": "",
+                    "hsjcjg": "0",
+                    "date": "20210819",
+                    "uid": "2133941",
+                    "created": 1629342746,
+                    "jcqzrq": "",
+                    "sfjcqz": "",
+                    "szsqsfybl": "0",
+                    "sfsqhzjkk": 0,
+                    "sqhzjkkys": "",
+                    "sfygtjzzfj": 0,
+                    "gtjzzfjsj": "",
+                    "ismoved": "0",
+                    "created_uid": 0,
+                    "id": 39724003
+                },
+                tipMsg: '',
+                ajaxLock: false,
+                showFxyy: false,
+                sfzgn: 1,
+                hasFlag: '',
+                setting: {
+                    "title": "\u5ddd\u5927\u75ab\u60c5\u9632\u63a7\u6bcf\u65e5\u62a5\u7cfb\u7edf",
+                    "desc": "\u6e29\u99a8\u63d0\u793a\uff1a \u4e0d\u5916\u51fa\u3001\u4e0d\u805a\u96c6\u3001\u4e0d\u5403\u91ce\u5473\uff0c \u6234\u53e3\u7f69\u3001\u52e4\u6d17\u624b\u3001\u5f00\u7a97\u901a\u98ce\u3001\u53d1\u70ed\u5c31\u8bca",
+                    "area": "\u84c9",
+                    "sendmsg": "",
+                    "img": "image\/8\/ebf49cd0d5f658e79876d6c2eef32696.jpg",
+                    "copyright": "",
+                    "notifywid": "4",
+                    "sms": "0",
+                    "mp": "1",
+                    "city": "\u6210\u90fd\u5e02",
+                    "mpid": "2",
+                    "templateid": "zH-fyHGwVKGzp0c3Ky7osgaWAeiwrMhIftxoeHpLT9o",
+                    "notice_num": "4",
+                    "modify_his": "0"
+                },
+                ipCtrl1: false,
+                country: country,
             },
-            'info.sfzx': function () {
-                if(!$.isEmptyObject(this.oldInfo) && this.oldInfo.sfzx == 0 && this.info.sfzx == 1) {
-                    this.showFxyy = true;
-                }else {
-                    this.showFxyy = false;
-                }
+            watch: {
+                'info.area': function () {
+                    if (!$.isEmptyObject(this.oldInfo) && (this.info.province + this.info.city != this
+                            .oldInfo.province + this.oldInfo.city)) {
+                        this.info.ismoved = 1;
+                    } else {
+                        this.info.ismoved = 0;
+                    }
+                },
+                'info.sfzx': function () {
+                    if (!$.isEmptyObject(this.oldInfo) && this.oldInfo.sfzx == 0 && this.info.sfzx == 1) {
+                        this.showFxyy = true;
+                    } else {
+                        this.showFxyy = false;
+                    }
 
+                },
+                'info.tw': function () {
+                    if (this.info.tw > 4) {
+                        this.info.sfcxtz = 1;
+                    }
+                },
             },
-            'info.tw': function() {
-                if(this.info.tw > 4) {
-                    this.info.sfcxtz = 1;
-                }
-            },
-        },
-        methods: {
-            confirm() {
+            methods: {
+                confirm() {
 
-                if(this.hasFlag == 1) {
-                    wapalert('每天只能填报一次，你已提交过');
-                    return false;
-                }
-                if(!this.valid(this.info)) {
-                    return false;
-                }
-                wapconfirm('每天只能填报一次，请确认信息是否全部正确？', '确认', '再看看', function () {
-                    vm.save();
-                });
-            },
-            mapInit() {
-                var self = this;
-                waploading('', '获取地理位置中（Getting the location）...');
-                self.loadBMap('0hYGiH3Ob5ZhV0eWzrGVXCD3bEdBCi6L', function() {
-                    if (navigator.geolocation) {
-                        try {
-                            var geolocation = new BMap.Geolocation();
-                            var gc = new BMap.Geocoder();
-                            console.log('start');
-                            geolocation.getCurrentPosition(
-                                function(p) {
-                                    // 创建地理编码实例
-                                    if( this.getStatus() == BMAP_STATUS_SUCCESS ){
-                                        if(p.accuracy==null){  //用户点击拒绝
-                                            waploading('hide');
-                                            wapalert('没有权限');
-                                            self.ipCtrl1 = true;
-                                            return false;
-                                        }else{//用户点击允许
-                                            // console.log(2,p);
-                                            if( p != null ){
-                                                var pt = p.point;//经纬度
-
-                                                $.ajax({
-                                                    url: 'https://api.map.baidu.com/reverse_geocoding/v3/?output=json&coordtype=wgs84ll',
-                                                    dataType: 'jsonp',
-                                                    type: 'GET',
-                                                    data: {
-                                                        ak:'0hYGiH3Ob5ZhV0eWzrGVXCD3bEdBCi6L',
-                                                        location: pt.lat + ',' + pt.lng
-                                                    },
-                                                    success: function (res) {
-                                                        console.log(res);
-                                                        waploading('hide');
-                                                        if( res.status == 0 ){
-                                                            // console.log(555,res);
-                                                            var country = res.result.addressComponent.country;//国家
-                                                            var city = res.result.addressComponent.city;//城市
-                                                            self.info.szgj = country;
-                                                            self.info.szcs = city;
-                                                            self.info.szgjcs = country+' '+city;
-                                                            self.info.geo_api_info = JSON.stringify(res);
-                                                        }else{
-                                                            wapalert('获取位置信息失败（Failed to get the location）');
-                                                        }
-                                                    },
-                                                    error: function () {
-                                                        waploading('hide');
-                                                        wapalert('获取位置信息失败（Failed to get the location）');
-                                                        self.ipCtrl1 = true;
-                                                    }
-                                                });
-                                            }else{
+                    if (this.hasFlag == 1) {
+                        wapalert('每天只能填报一次，你已提交过');
+                        return false;
+                    }
+                    if (!this.valid(this.info)) {
+                        return false;
+                    }
+                    wapconfirm('每天只能填报一次，请确认信息是否全部正确？', '确认', '再看看', function () {
+                        vm.save();
+                    });
+                },
+                mapInit() {
+                    var self = this;
+                    waploading('', '获取地理位置中（Getting the location）...');
+                    self.loadBMap('0hYGiH3Ob5ZhV0eWzrGVXCD3bEdBCi6L', function () {
+                        if (navigator.geolocation) {
+                            try {
+                                var geolocation = new BMap.Geolocation();
+                                var gc = new BMap.Geocoder();
+                                console.log('start');
+                                geolocation.getCurrentPosition(
+                                    function (p) {
+                                        // 创建地理编码实例
+                                        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                                            if (p.accuracy == null) { //用户点击拒绝
                                                 waploading('hide');
-                                                wapalert('获取位置信息失败（Failed to get the location）');
+                                                wapalert('没有权限');
                                                 self.ipCtrl1 = true;
+                                                return false;
+                                            } else { //用户点击允许
+                                                // console.log(2,p);
+                                                if (p != null) {
+                                                    var pt = p.point; //经纬度
+
+                                                    $.ajax({
+                                                        url: 'https://api.map.baidu.com/reverse_geocoding/v3/?output=json&coordtype=wgs84ll',
+                                                        dataType: 'jsonp',
+                                                        type: 'GET',
+                                                        data: {
+                                                            ak: '0hYGiH3Ob5ZhV0eWzrGVXCD3bEdBCi6L',
+                                                            location: pt.lat + ',' + pt.lng
+                                                        },
+                                                        success: function (res) {
+                                                            console.log(res);
+                                                            waploading('hide');
+                                                            if (res.status == 0) {
+                                                                // console.log(555,res);
+                                                                var country = res.result
+                                                                    .addressComponent
+                                                                    .country; //国家
+                                                                var city = res.result
+                                                                    .addressComponent
+                                                                    .city; //城市
+                                                                self.info.szgj =
+                                                                country;
+                                                                self.info.szcs = city;
+                                                                self.info.szgjcs =
+                                                                    country + ' ' +
+                                                                    city;
+                                                                self.info.geo_api_info =
+                                                                    JSON.stringify(res);
+                                                            } else {
+                                                                wapalert(
+                                                                    '获取位置信息失败（Failed to get the location）'
+                                                                    );
+                                                            }
+                                                        },
+                                                        error: function () {
+                                                            waploading('hide');
+                                                            wapalert(
+                                                                '获取位置信息失败（Failed to get the location）'
+                                                                );
+                                                            self.ipCtrl1 = true;
+                                                        }
+                                                    });
+                                                } else {
+                                                    waploading('hide');
+                                                    wapalert(
+                                                    '获取位置信息失败（Failed to get the location）');
+                                                    self.ipCtrl1 = true;
+                                                }
                                             }
+                                        } else if (this.getStatus() == BMAP_STATUS_CITY_LIST) {
+                                            waploading('hide');
+                                            wapalert('暂时获取不到位置信息（Cannot get the location）');
+                                            self.ipCtrl1 = true;
+
+                                        } else if (this.getStatus() ==
+                                            BMAP_STATUS_UNKNOWN_LOCATION) {
+                                            waploading('hide');
+                                            wapalert('位置结果未知（Location result unknown）');
+                                            self.ipCtrl1 = true;
+
+                                        } else if (this.getStatus() == BMAP_STATUS_UNKNOWN_ROUTE) {
+                                            waploading('hide');
+                                            wapalert('导航结果未知（Navigation result unknown）');
+                                            self.ipCtrl1 = true;
+
+                                        } else if (this.getStatus() == BMAP_STATUS_INVALID_KEY) {
+                                            waploading('hide');
+                                            wapalert('非法密钥（Invalid key）');
+                                            self.ipCtrl1 = true;
+
+                                        } else if (this.getStatus() ==
+                                            BMAP_STATUS_INVALID_REQUEST) {
+                                            waploading('hide');
+                                            wapalert('非法请求（Invalid request）');
+                                            self.ipCtrl1 = true;
+
+                                        } else if (this.getStatus() ==
+                                            BMAP_STATUS_PERMISSION_DENIED) {
+                                            waploading('hide');
+                                            wapalert('没有权限（Permission denied）');
+                                            self.ipCtrl1 = true;
+
+                                        } else if (this.getStatus() ==
+                                            BMAP_STATUS_SERVICE_UNAVAILABLE) {
+                                            waploading('hide');
+                                            wapalert('服务不可用（Service unavailable）');
+                                            self.ipCtrl1 = true;
+
+                                        } else if (this.getStatus() == BMAP_STATUS_TIMEOUT) {
+                                            waploading('hide');
+                                            wapalert('获取定位超时（Timeout to get the location）');
+                                            self.ipCtrl1 = true;
+
                                         }
-                                    }else if( this.getStatus() == BMAP_STATUS_CITY_LIST ){
+                                    },
+                                    function (err) {
+                                        console.log(err);
                                         waploading('hide');
-                                        wapalert('暂时获取不到位置信息（Cannot get the location）');
+                                        wapalert('无法获取位置信息（Failed to get the location）');
                                         self.ipCtrl1 = true;
+                                    }, {
+                                        enableHighAcuracy: true,
+                                        maximumAge: 0,
+                                    });
+                            } catch (err) {
+                                console.log(err);
+                                waploading('hide');
+                                wapalert('无法获取当前地理位置（Fail to get your geolocation）');
+                                self.ipCtrl1 = true;
 
-                                    }else if( this.getStatus() == BMAP_STATUS_UNKNOWN_LOCATION ){
-                                        waploading('hide');
-                                        wapalert('位置结果未知（Location result unknown）');
-                                        self.ipCtrl1 = true;
-
-                                    }else if( this.getStatus() == BMAP_STATUS_UNKNOWN_ROUTE ){
-                                        waploading('hide');
-                                        wapalert('导航结果未知（Navigation result unknown）');
-                                        self.ipCtrl1 = true;
-
-                                    }else if( this.getStatus() == BMAP_STATUS_INVALID_KEY ){
-                                        waploading('hide');
-                                        wapalert('非法密钥（Invalid key）');
-                                        self.ipCtrl1 = true;
-
-                                    }else if( this.getStatus() == BMAP_STATUS_INVALID_REQUEST){
-                                        waploading('hide');
-                                        wapalert('非法请求（Invalid request）');
-                                        self.ipCtrl1 = true;
-
-                                    }else if( this.getStatus() == BMAP_STATUS_PERMISSION_DENIED){
-                                        waploading('hide');
-                                        wapalert('没有权限（Permission denied）');
-                                        self.ipCtrl1 = true;
-
-                                    }else if( this.getStatus() == BMAP_STATUS_SERVICE_UNAVAILABLE ){
-                                        waploading('hide');
-                                        wapalert('服务不可用（Service unavailable）');
-                                        self.ipCtrl1 = true;
-
-                                    }else if( this.getStatus() == BMAP_STATUS_TIMEOUT ){
-                                        waploading('hide');
-                                        wapalert('获取定位超时（Timeout to get the location）');
-                                        self.ipCtrl1 = true;
-
-                                    }
-                                }, function(err) {
-                                    console.log(err);
-                                    waploading('hide');
-                                    wapalert('无法获取位置信息（Failed to get the location）');
-                                    self.ipCtrl1 = true;
-                                },{
-                                    enableHighAcuracy: true,
-                                    maximumAge: 0,
-                                });
-                        } catch (err) {
-                            console.log(err);
-                            waploading('hide');
-                            wapalert('无法获取当前地理位置（Fail to get your geolocation）');
-                            self.ipCtrl1 = true;
-
-                        }
-                    } else {
-                        waploading('hide');
-                        wapalert('浏览器不支持定位（This browser does not support location services）');
-                        self.ipCtrl1 = true;
-                        return false;
-                    }
-                });
-            },
-            loadBMap(ak, callback) {
-                if(typeof BMap !== 'undefined') {
-                    callback();
-                    return true;
-                }
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = 'https://api.map.baidu.com/api?v=3.0&ak=' + ak + '&callback=onBMapCallback';
-                document.head.appendChild(script);
-                script.onload = function() {
-                    var tmp = function() {
-                        if(typeof BMap !== 'undefined' && typeof BMap.Geolocation != 'undefined') {
-                            callback();
-                        }else {
-                            setTimeout(tmp, 2000);
-                        }
-                    };
-                    tmp();
-                }
-            },
-            setSfzgn(flag) {
-                if(flag == 0) {
-                    this.info.area = '国外';
-                    this.info.city = '国外';
-                    this.info.province = '国外';
-                }else {
-                    var tmp = $.isEmptyObject(this.oldInfo);
-                    this.info.area = '';
-                    this.info.city = tmp ? '' : this.oldInfo.city;
-                    this.info.province = tmp ? '' : this.oldInfo.province;
-                }
-                this.sfzgn = flag;
-            },
-            setSfzx(flag) {
-                if(!$.isEmptyObject(this.oldInfo) && this.oldInfo.sfzx == 0 && flag == 1 && this.info.sfzx != flag) {
-                    wapconfirm('确认已经返校？', '确认', '取消', function () {
-                        vm.info.sfzx = 1;
-                    }, function () {
-                        vm.info.sfzx = 0;
-                    });
-                    return false;
-                }
-                this.info.sfzx = flag;
-            },
-            save() {
-
-                try {
-                    var _this = this;
-
-                    if(_this.info.sfjcbh == 0) {
-                        _this.info.jcbhlx = '';
-                        _this.info.jcbhrq = '';
-                    }
-
-                    if(_this.info.sfcyglq == 0) {
-                        _this.info.gllx = '';
-                        _this.info.glksrq = '';
-                    }
-
-                    if(_this.info.sfcxtz == 0) {
-                        _this.info.sfyyjc = 0;
-                    }
-                    if(_this.info.sfyyjc == 0) {
-                        _this.info.jcjgqr = 0;
-                        _this.info.jcjg = '';
-                    }
-
-                    if(_this.info.sfcxzysx ==0) {
-                        _this.info.qksm = '';
-                    }
-                    if(_this.sfzgn==1) {
-                        _this.info.szcs = "";
-                        _this.info.szgj = "";
-                    }
-
-                    if(_this.info.sfjxhsjc != 1) {
-                        _this.info.hsjcrq = '';
-                        _this.info.hsjcdd = '';
-                        _this.info.hsjcjg = 0;
-                    }
-
-                    if(_this.info.sfzx != 1) {
-                        _this.info.szxqmc = '';
-                    } else {
-                        _this.info.bzxyy = '';
-                    }
-
-                    if(_this.info.sfjzdezxgym != 1) {
-                        _this.info.jzdezxgymrq = '';
-                    }
-
-                    if(_this.info.sfjzxgym != 1) {
-                        _this.info.jzxgymrq = '';
-                    }
-
-
-                                        
-
-
-                    if(_this.ajaxLock) {
-                        wapalert('数据提交中');
-                        return false;
-                    }
-                    _this.ajaxLock = true;
-                    waploading('', '数据提交中, 请稍候...');
-                    $.ajax({
-                        url: '/ncov/wap/default/save',
-                        type: 'POST',
-                        dataType: 'JSON',
-                        data: _this.info,
-                        success: function (resp) {
-                            _this.ajaxLock = false;
-                            waploading('hide');
-                            if(resp.e == 0) {
-                                wapalert('提交信息成功');
-                                _this.hasFlag = 1;
-                            }else {
-                                wapalert(resp.m);
                             }
-                        },
-                        error: function () {
-                            _this.ajaxLock = false;
+                        } else {
                             waploading('hide');
-                            wapalert('系统繁忙，请稍后再试！');
+                            wapalert('浏览器不支持定位（This browser does not support location services）');
+                            self.ipCtrl1 = true;
+                            return false;
                         }
                     });
-                } catch (e) {
-                    alert(e);
-                }
-
-
-            },
-            valid(info) {
-                if(info.tw == '' || info.tw > 10) {
-                    wapalert('请选择今日体温范围', false, function () {
-                        $("[name=tw]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-
-
-                if(this.showFxyy && info.fxyy == '') {
-                    wapalert('请填写返校原因', false, function () {
-                        $("[name=fxyy]").focus();
-                        $("[name=fxyy]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-
-                if(this.info.ismoved == 1 && this.info.bztcyy == '') {
-                    wapalert('请选择不和前一天同城原因', false, function () {
-                        $("[name=bztcyy]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-
-
-                if(info.sfcxtz == 1) {
-                    if(info.sfyyjc == 1 && info.jcjgqr == '') {
-                        wapalert('请选择检查结果属于以下哪种情况', false, function () {
-                            $("[name=jcjgqr]").get(0).scrollIntoView(false);
+                },
+                loadBMap(ak, callback) {
+                    if (typeof BMap !== 'undefined') {
+                        callback();
+                        return true;
+                    }
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.src = 'https://api.map.baidu.com/api?v=3.0&ak=' + ak + '&callback=onBMapCallback';
+                    document.head.appendChild(script);
+                    script.onload = function () {
+                        var tmp = function () {
+                            if (typeof BMap !== 'undefined' && typeof BMap.Geolocation != 'undefined') {
+                                callback();
+                            } else {
+                                setTimeout(tmp, 2000);
+                            }
+                        };
+                        tmp();
+                    }
+                },
+                setSfzgn(flag) {
+                    if (flag == 0) {
+                        this.info.area = '国外';
+                        this.info.city = '国外';
+                        this.info.province = '国外';
+                    } else {
+                        var tmp = $.isEmptyObject(this.oldInfo);
+                        this.info.area = '';
+                        this.info.city = tmp ? '' : this.oldInfo.city;
+                        this.info.province = tmp ? '' : this.oldInfo.province;
+                    }
+                    this.sfzgn = flag;
+                },
+                setSfzx(flag) {
+                    if (!$.isEmptyObject(this.oldInfo) && this.oldInfo.sfzx == 0 && flag == 1 && this.info
+                        .sfzx != flag) {
+                        wapconfirm('确认已经返校？', '确认', '取消', function () {
+                            vm.info.sfzx = 1;
+                        }, function () {
+                            vm.info.sfzx = 0;
                         });
                         return false;
                     }
-                }
+                    this.info.sfzx = flag;
+                },
+                save() {
+
+                    try {
+                        var _this = this;
+
+                        if (_this.info.sfjcbh == 0) {
+                            _this.info.jcbhlx = '';
+                            _this.info.jcbhrq = '';
+                        }
+
+                        if (_this.info.sfcyglq == 0) {
+                            _this.info.gllx = '';
+                            _this.info.glksrq = '';
+                        }
+
+                        if (_this.info.sfcxtz == 0) {
+                            _this.info.sfyyjc = 0;
+                        }
+                        if (_this.info.sfyyjc == 0) {
+                            _this.info.jcjgqr = 0;
+                            _this.info.jcjg = '';
+                        }
+
+                        if (_this.info.sfcxzysx == 0) {
+                            _this.info.qksm = '';
+                        }
+                        if (_this.sfzgn == 1) {
+                            _this.info.szcs = "";
+                            _this.info.szgj = "";
+                        }
+
+                        if (_this.info.sfjxhsjc != 1) {
+                            _this.info.hsjcrq = '';
+                            _this.info.hsjcdd = '';
+                            _this.info.hsjcjg = 0;
+                        }
+
+                        if (_this.info.sfzx != 1) {
+                            _this.info.szxqmc = '';
+                        } else {
+                            _this.info.bzxyy = '';
+                        }
+
+                        if (_this.info.sfjzdezxgym != 1) {
+                            _this.info.jzdezxgymrq = '';
+                        }
+
+                        if (_this.info.sfjzxgym != 1) {
+                            _this.info.jzxgymrq = '';
+                        }
 
 
-                if(info.sfjcbh == 1) {
-                    if(info.jcbhlx == '') {
-                        wapalert('请选择接触人群类型', false, function () {
-                            $("[name=jcbhlx]").get(0).scrollIntoView(false);
+
+
+
+                        if (_this.ajaxLock) {
+                            wapalert('数据提交中');
+                            return false;
+                        }
+                        _this.ajaxLock = true;
+                        waploading('', '数据提交中, 请稍候...');
+                        $.ajax({
+                            url: '/ncov/wap/default/save',
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: _this.info,
+                            success: function (resp) {
+                                _this.ajaxLock = false;
+                                waploading('hide');
+                                if (resp.e == 0) {
+                                    wapalert('提交信息成功');
+                                    _this.hasFlag = 1;
+                                } else {
+                                    wapalert(resp.m);
+                                }
+                            },
+                            error: function () {
+                                _this.ajaxLock = false;
+                                waploading('hide');
+                                wapalert('系统繁忙，请稍后再试！');
+                            }
+                        });
+                    } catch (e) {
+                        alert(e);
+                    }
+
+
+                },
+                valid(info) {
+                    if (info.tw == '' || info.tw > 10) {
+                        wapalert('请选择今日体温范围', false, function () {
+                            $("[name=tw]").get(0).scrollIntoView(false);
                         });
                         return false;
                     }
-                    if(info.jcbhrq == '') {
-                        wapalert('请选择接触时间', false, function () {
-                            $("[name=jcbhrq]").get(0).scrollIntoView(false);
+
+
+                    if (this.showFxyy && info.fxyy == '') {
+                        wapalert('请填写返校原因', false, function () {
+                            $("[name=fxyy]").focus();
+                            $("[name=fxyy]").get(0).scrollIntoView(false);
                         });
                         return false;
                     }
-                }
 
-
-                if(info.sfcyglq == 1) {
-                    if(info.gllx == '') {
-                        wapalert('请选择观察场所', false, function () {
-                            $("[name=gllx]").get(0).scrollIntoView(false);
+                    if (this.info.ismoved == 1 && this.info.bztcyy == '') {
+                        wapalert('请选择不和前一天同城原因', false, function () {
+                            $("[name=bztcyy]").get(0).scrollIntoView(false);
                         });
                         return false;
                     }
-                    if(info.glksrq == '') {
-                        wapalert('请选择观察开始时间', false, function () {
-                            $("[name=glksrq]").get(0).scrollIntoView(false);
+
+
+                    if (info.sfcxtz == 1) {
+                        if (info.sfyyjc == 1 && info.jcjgqr == '') {
+                            wapalert('请选择检查结果属于以下哪种情况', false, function () {
+                                $("[name=jcjgqr]").get(0).scrollIntoView(false);
+                            });
+                            return false;
+                        }
+                    }
+
+
+                    if (info.sfjcbh == 1) {
+                        if (info.jcbhlx == '') {
+                            wapalert('请选择接触人群类型', false, function () {
+                                $("[name=jcbhlx]").get(0).scrollIntoView(false);
+                            });
+                            return false;
+                        }
+                        if (info.jcbhrq == '') {
+                            wapalert('请选择接触时间', false, function () {
+                                $("[name=jcbhrq]").get(0).scrollIntoView(false);
+                            });
+                            return false;
+                        }
+                    }
+
+
+                    if (info.sfcyglq == 1) {
+                        if (info.gllx == '') {
+                            wapalert('请选择观察场所', false, function () {
+                                $("[name=gllx]").get(0).scrollIntoView(false);
+                            });
+                            return false;
+                        }
+                        if (info.glksrq == '') {
+                            wapalert('请选择观察开始时间', false, function () {
+                                $("[name=glksrq]").get(0).scrollIntoView(false);
+                            });
+                            return false;
+                        }
+                    }
+
+
+                    if (info.sfcxzysx == 1 && info.qksm == '') {
+                        wapalert('情况说明不能为空', false, function () {
+                            $("[name=qksm]").focus();
+                            $("[name=qksm]").get(0).scrollIntoView(false);
                         });
                         return false;
                     }
-                }
 
-
-                if(info.sfcxzysx == 1 && info.qksm== '') {
-                    wapalert('情况说明不能为空', false, function () {
-                        $("[name=qksm]").focus();
-                        $("[name=qksm]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-
-                if(info.area == '' && this.sfzgn == 1) {
-                    wapalert('未获取到地理位置', false, function () {
-                        $("[name=area]").focus();
-                        $("[name=area]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-
-                if(this.sfzgn==0 && $.trim(info.szgjcs) == '' && !this.ipCtrl1) {
-                    wapalert('未获取到地理位置', false, function () {
-                        $("[name=szgjcs]").focus();
-                        $("[name=dwszgj]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-
-                if(this.sfzgn==0 && this.info.szgj=='' && this.ipCtrl1){
-
-                    wapalert('请选择所在地区/国家', false, function () {
-                        // $("[name=szgj]").focus();
-                        $("[name=szcs]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-                if(this.sfzgn==0 && this.info.szcs=='' && this.ipCtrl1){
-
-                    wapalert('请填写所在具体区域/国家城市', false, function () {
-                        $("[name=szcs]").focus();
-                        $("[name=szcs]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-
-                if(info.zgfxdq === '') {
-                    wapalert('请选择今日是否在中高风险地区', false, function () {
-                        $("[name=zgfxdq]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-                if(info.mjry === '') {
-                    wapalert('请选择今日是否接触密接人员', false, function () {
-                        $("[name=mjry]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-                if(info.csmjry === '') {
-                    wapalert('请选择近14日内本人/共同居住者是否去过疫情发生场所（市场、单位、小区等）或与场所人员有过密切接触', false, function () {
-                        $("[name=csmjry]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-
-                if(info.sfzx == 1) {
-                    if (info.szxqmc == '') {
-                        wapalert('请选择所在校区', false, function () {
-                            $("[name=szxqmc]").get(0).scrollIntoView(false);
+                    if (info.area == '' && this.sfzgn == 1) {
+                        wapalert('未获取到地理位置', false, function () {
+                            $("[name=area]").focus();
+                            $("[name=area]").get(0).scrollIntoView(false);
                         });
                         return false;
                     }
-                }
 
-                if(info.sfjzxgym === '') {
-                    wapalert('请选择是否接种过新冠疫苗', false, function () {
-                        $("[name=sfjzxgym]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }else if(info.sfjzxgym==1 && info.jzxgymrq === '') {
-                    wapalert('请选择接种第一剂新冠疫苗时间', false, function () {
-                        $("[name=jzxgymrq]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-
-                if(info.sfjzdezxgym === '') {
-                    wapalert('请选择是否接种第二剂新冠疫苗', false, function () {
-                        $("[name=sfjzdezxgym]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }else if(info.sfjzdezxgym==1 && info.jzdezxgymrq === '') {
-                    wapalert('请选择接种第二剂新冠疫苗时间', false, function () {
-                        $("[name=jzdezxgymrq]").get(0).scrollIntoView(false);
-                    });
-                    return false;
-                }
-
-
-                                if (info.sfzx == 0) {
-                    // console.log(info);
-                    if (info.bzxyy == '') {
-                        wapalert('请选不在校原因', false, function () {
-                            $("[name=bzxyy]").get(0).scrollIntoView(false);
+                    if (this.sfzgn == 0 && $.trim(info.szgjcs) == '' && !this.ipCtrl1) {
+                        wapalert('未获取到地理位置', false, function () {
+                            $("[name=szgjcs]").focus();
+                            $("[name=dwszgj]").get(0).scrollIntoView(false);
                         });
                         return false;
                     }
-                }
-                
-                return true;
-            },
-            locatComplete(res) {
-                waploading('hide');
-                vm.info.geo_api_info = JSON.stringify(res);
-                vm.info.address = res.formattedAddress;
-                vm.info.province = res.addressComponent.province;
-                vm.info.city = res.addressComponent.city;
-                if($.trim(vm.info.city) == '' && ['成都市','上海市','重庆市','天津市'].indexOf(vm.info.province) > -1) {
-                    vm.info.city = vm.info.province;
-                }
-                vm.info.area = res.addressComponent.province + ' ' + res.addressComponent.city + ' ' + res.addressComponent.district;
-            },
-            locatError(res) {
-                waploading('hide');
-                vm.info.geo_api_info = JSON.stringify(res);
-                vm.info.address = '';
-                vm.info.province = '';
-                vm.info.city = '';
-                vm.info.area = '';
-                $.ajax({
-                    url: '/ncov/wap/default/save-geo-error',
-                    dataType: 'JSON',
-                    type: 'POST',
-                    data: {error: JSON.stringify(res)},
-                    success(res) {
 
-                    },
-                    error() {
+                    if (this.sfzgn == 0 && this.info.szgj == '' && this.ipCtrl1) {
 
+                        wapalert('请选择所在地区/国家', false, function () {
+                            // $("[name=szgj]").focus();
+                            $("[name=szcs]").get(0).scrollIntoView(false);
+                        });
+                        return false;
                     }
-                });
-                wapalert('获取位置信息失败');
-            },
-            getLocation(flag) {
-                mapObj = new AMap.Map('iCenter');
-                mapObj.plugin('AMap.Geolocation', function () {
-                    geolocation = new AMap.Geolocation({
-                        enableHighAccuracy: true,//是否使用高精度定位，默认:true
-                        timeout: 10000,          //超过10秒后停止定位，默认：无穷大
-                        maximumAge: 0,           //定位结果缓存0毫秒，默认：0
-                        convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
-                        showButton: true,        //显示定位按钮，默认：true
-                        buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
-                        buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
-                        panToLocation: false,     //定位成功后将定位到的位置作为地图中心点，默认：true
-                        zoomToAccuracy:false,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
-                        useNative: true,
-                    });
-                    mapObj.addControl(geolocation);
-                    !flag && waploading('show', '获取地理位置中...');
-                    geolocation.getCurrentPosition();
-                    AMap.event.addListener(geolocation, 'complete', vm.locatComplete);//返回定位信息
-                    AMap.event.addListener(geolocation, 'error', vm.locatError);      //返回定位出错信息
-                });
-            },
-            initSelect: function () {
-                var self = this;
-                $('#szgj').select2({
-                    language: "zh-CN",
-                    width: "100%",
-                });
+                    if (this.sfzgn == 0 && this.info.szcs == '' && this.ipCtrl1) {
 
-                $('#szgj').on('select2:open', function(element) {
-                    $('.select2-search__field').attr('placeholder', "输入国家或地区")
-                });
-                $("#szgj").on("select2:select", function (e) {
-                    self.info.szgj = $(e.currentTarget).val();
-                });
+                        wapalert('请填写所在具体区域/国家城市', false, function () {
+                            $("[name=szcs]").focus();
+                            $("[name=szcs]").get(0).scrollIntoView(false);
+                        });
+                        return false;
+                    }
+
+                    if (info.zgfxdq === '') {
+                        wapalert('请选择今日是否在中高风险地区', false, function () {
+                            $("[name=zgfxdq]").get(0).scrollIntoView(false);
+                        });
+                        return false;
+                    }
+                    if (info.mjry === '') {
+                        wapalert('请选择今日是否接触密接人员', false, function () {
+                            $("[name=mjry]").get(0).scrollIntoView(false);
+                        });
+                        return false;
+                    }
+                    if (info.csmjry === '') {
+                        wapalert('请选择近14日内本人/共同居住者是否去过疫情发生场所（市场、单位、小区等）或与场所人员有过密切接触', false, function () {
+                            $("[name=csmjry]").get(0).scrollIntoView(false);
+                        });
+                        return false;
+                    }
+
+                    if (info.sfzx == 1) {
+                        if (info.szxqmc == '') {
+                            wapalert('请选择所在校区', false, function () {
+                                $("[name=szxqmc]").get(0).scrollIntoView(false);
+                            });
+                            return false;
+                        }
+                    }
+
+                    if (info.sfjzxgym === '') {
+                        wapalert('请选择是否接种过新冠疫苗', false, function () {
+                            $("[name=sfjzxgym]").get(0).scrollIntoView(false);
+                        });
+                        return false;
+                    } else if (info.sfjzxgym == 1 && info.jzxgymrq === '') {
+                        wapalert('请选择接种第一剂新冠疫苗时间', false, function () {
+                            $("[name=jzxgymrq]").get(0).scrollIntoView(false);
+                        });
+                        return false;
+                    }
+
+                    if (info.sfjzdezxgym === '') {
+                        wapalert('请选择是否接种第二剂新冠疫苗', false, function () {
+                            $("[name=sfjzdezxgym]").get(0).scrollIntoView(false);
+                        });
+                        return false;
+                    } else if (info.sfjzdezxgym == 1 && info.jzdezxgymrq === '') {
+                        wapalert('请选择接种第二剂新冠疫苗时间', false, function () {
+                            $("[name=jzdezxgymrq]").get(0).scrollIntoView(false);
+                        });
+                        return false;
+                    }
+
+
+                    if (info.sfzx == 0) {
+                        // console.log(info);
+                        if (info.bzxyy == '') {
+                            wapalert('请选不在校原因', false, function () {
+                                $("[name=bzxyy]").get(0).scrollIntoView(false);
+                            });
+                            return false;
+                        }
+                    }
+
+                    return true;
+                },
+                locatComplete(res) {
+                    waploading('hide');
+                    vm.info.geo_api_info = JSON.stringify(res);
+                    vm.info.address = res.formattedAddress;
+                    vm.info.province = res.addressComponent.province;
+                    vm.info.city = res.addressComponent.city;
+                    if ($.trim(vm.info.city) == '' && ['成都市', '上海市', '重庆市', '天津市'].indexOf(vm.info.province) > -
+                        1) {
+                        vm.info.city = vm.info.province;
+                    }
+                    vm.info.area = res.addressComponent.province + ' ' + res.addressComponent.city + ' ' + res
+                        .addressComponent.district;
+                },
+                locatError(res) {
+                    waploading('hide');
+                    vm.info.geo_api_info = JSON.stringify(res);
+                    vm.info.address = '';
+                    vm.info.province = '';
+                    vm.info.city = '';
+                    vm.info.area = '';
+                    $.ajax({
+                        url: '/ncov/wap/default/save-geo-error',
+                        dataType: 'JSON',
+                        type: 'POST',
+                        data: {
+                            error: JSON.stringify(res)
+                        },
+                        success(res) {
+
+                        },
+                        error() {
+
+                        }
+                    });
+                    wapalert('获取位置信息失败');
+                },
+                getLocation(flag) {
+                    mapObj = new AMap.Map('iCenter');
+                    mapObj.plugin('AMap.Geolocation', function () {
+                        geolocation = new AMap.Geolocation({
+                            enableHighAccuracy: true, //是否使用高精度定位，默认:true
+                            timeout: 10000, //超过10秒后停止定位，默认：无穷大
+                            maximumAge: 0, //定位结果缓存0毫秒，默认：0
+                            convert: true, //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+                            showButton: true, //显示定位按钮，默认：true
+                            buttonPosition: 'LB', //定位按钮停靠位置，默认：'LB'，左下角
+                            buttonOffset: new AMap.Pixel(10,
+                            20), //定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+                            panToLocation: false, //定位成功后将定位到的位置作为地图中心点，默认：true
+                            zoomToAccuracy: false, //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+                            useNative: true,
+                        });
+                        mapObj.addControl(geolocation);
+                        !flag && waploading('show', '获取地理位置中...');
+                        geolocation.getCurrentPosition();
+                        AMap.event.addListener(geolocation, 'complete', vm.locatComplete); //返回定位信息
+                        AMap.event.addListener(geolocation, 'error', vm.locatError); //返回定位出错信息
+                    });
+                },
+                initSelect: function () {
+                    var self = this;
+                    $('#szgj').select2({
+                        language: "zh-CN",
+                        width: "100%",
+                    });
+
+                    $('#szgj').on('select2:open', function (element) {
+                        $('.select2-search__field').attr('placeholder', "输入国家或地区")
+                    });
+                    $("#szgj").on("select2:select", function (e) {
+                        self.info.szgj = $(e.currentTarget).val();
+                    });
+                }
             }
-        }
-    });
-    Vue.nextTick(function () {
-        vm.initSelect();
-    });
-    // if(vm.info.area) {
-    //     vm.getLocation(1);
-    // }
+        });
+        Vue.nextTick(function () {
+            vm.initSelect();
+        });
+        // if(vm.info.area) {
+        //     vm.getLocation(1);
+        // }
+    </script>
+    <div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
 
-</script>
-                    <div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
 
-            <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
 
-                <div class="pswp__container">
-                    <div class="pswp__item"></div>
-                    <div class="pswp__item"></div>
-                    <div class="pswp__item"></div>
-                </div>
+            <div class="pswp__ui pswp__ui--hidden">
 
-                <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
 
-                    <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
 
-                        <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close"></button>
 
-                        <button class="pswp__button pswp__button--close"></button>
-
-                        <div class="pswp__preloader">
-                            <div class="pswp__preloader__icn">
-                                <div class="pswp__preloader__cut">
-                                    <div class="pswp__preloader__donut"></div>
-                                </div>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                        <div class="pswp__share-tooltip">
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip">
 
-                        </div>
-                    </div>
-
-                    <button class="pswp__button pswp__button--arrow--left"></button>
-                    <button class="pswp__button pswp__button--arrow--right"></button>
-                    <div class="pswp__caption">
-                        <div class="pswp__caption__center">
-                        </div>
                     </div>
                 </div>
 
+                <button class="pswp__button pswp__button--arrow--left"></button>
+                <button class="pswp__button pswp__button--arrow--right"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center">
+                    </div>
+                </div>
             </div>
 
         </div>
-    </body>
+
+    </div>
+</body>
+
 </html>
