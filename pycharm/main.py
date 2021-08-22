@@ -72,10 +72,7 @@ if __name__ == '__main__':
     }
 
     getcookies={
-        'eai-sess' : 'o8tpte3v2cbeu2694scvtl6bc4',
-        'UUkey' : '4b950f3152a81996e837685c7d04228f',
-        'Hm_lvt_48b682d4885d22a90111e46b972e3268' : '1629463788, 1629477294',
-        'Hm_lpvt_48b682d4885d22a90111e46b972e3268' : '1629477478'
+        
     }
 
 
