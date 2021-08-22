@@ -40,12 +40,12 @@ def valid(info):
         info['szcs'] = ''
         info['szgj'] = ''
 
-    if info['sfjxhsjc'] != 1:
+    if 'sfjxhsjc' not in info.keys() or ('sfjxhsjc' in info.keys() and info['sfjxhsjc'] != 1)  :
         info['hsjcrq'] = ''
         info['hsjcdd'] = ''
         info['hsjcjg'] = 0
 
-    if info['sfjxhsjc'] != 1:
+    if info['sfzx'] != 1:
         info['szxqmc'] = ''
     else:
         info['bzxyy'] = ''
@@ -80,7 +80,7 @@ if __name__ == '__main__':
         if hasFlag=='1':
             print('\n已经完成过打卡，每天只能打卡一次\n')
         else:
-            print("\nget result is \n"+r.text)
+            # print("\nget result is \n"+r.text)
             #getOldinfo
             oldInfo=getOldinfo(r.text)
             oldInfo=json.loads(oldInfo[0])
@@ -93,20 +93,30 @@ if __name__ == '__main__':
             print(defInfo)
 
             #构成打卡信息
-            uploadinfo=defInfo.update({'szgjcs': ''})
+            uploadinfo = defInfo
+            uploadinfo['szgjcs']= ''
+            uploadinfo['sfzgn']=1
+            print("\n uploadinfo is :\n")
+            print(uploadinfo)
+
             uploadinfo['geo_api_info']=oldInfo['geo_api_info']
-            uploadinfo['address']=oldInfo['geo_api_info']['formattedAddress']
-            uploadinfo['province']=oldInfo['geo_api_info']['addressComponent']['province']
-            uploadinfo['city']=oldInfo['geo_api_info']['addressComponent']['city']
-            uploadinfo['area']=uploadinfo['province']+' '+uploadinfo['city']+' '+oldInfo['geo_api_info']['addressComponent']['district']
+            oldGeoInfo=json.loads(oldInfo['geo_api_info'])
+            uploadinfo['address']=oldGeoInfo['formattedAddress']
+            uploadinfo['province']=oldGeoInfo['addressComponent']['province']
+            uploadinfo['city']=oldGeoInfo['addressComponent']['city']
+            uploadinfo['area']=uploadinfo['province']+' '+uploadinfo['city']+' '+oldGeoInfo['addressComponent']['district']
 
             valid(uploadinfo)
-            uploadurl=''
+            uploadurl='https://wfw.scu.edu.cn/ncov/wap/default/save'
             r=requests.post(uploadurl,json=json.dumps(uploadinfo),cookies=getcookies)
             if r.status_code==requests.codes.ok:
-                print('\n提交信息成功！\n')
-        
-
+                print('\n打卡成功！\n')
+            else:
+                print('\n打卡失败！\n')
+                print(r.status_code)
+                print(r.text)
+    else:
+        print('Cookies登录失败！')
 
 
 

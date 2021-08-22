@@ -1,6 +1,7 @@
 # SCU DairyNote
 
 作者邮箱：icexyz787@gmail.com
+
 本程序的目的是实现每日自动打卡，避免每天定闹钟打卡:)
 
 本程序主要使用Python的[Request](https://docs.python-requests.org/zh_CN/latest/)库来发送Http请求
