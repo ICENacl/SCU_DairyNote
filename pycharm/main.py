@@ -8,6 +8,7 @@ from email.header import Header
 from aip import AipOcr
 import time
 import sys
+import os
 
 def getOldinfo(input):
     temp=re.findall(r"oldInfo: ({[\s|\S]*}),[\s]*tipMsg",input)
@@ -68,11 +69,11 @@ def construct_GeoInfo(oldInfo,adress):
 
 def sendemail(msg):
     mail_host = "smtp.qq.com"
-    mail_user = ""
+    mail_user = "1783834865@qq.com"
     mail_pass = "aifxhnqlblazgjff"
 
-    sender = ''
-    receivers = ['']
+    sender = '1783834865@qq.com'
+    receivers = ['a1783834865@gmail.com']
 
     message = MIMEText(msg, 'plain', 'utf-8')
     message['From'] = Header("DiaryNote", 'utf-8')
@@ -93,12 +94,15 @@ def sendemail(msg):
             sender, receivers, message.as_string())
         #退出
         smtpObj.quit()
-        print('success')
+        print('send mail success')
     except smtplib.SMTPException as e:
         #打印错误
         print('error', e)
 
 def verifyCaptcha(s,r):
+    if not os.path.exists('captcha'):
+        os.makedirs('captcha')
+
     captchaID = getCaptchaID(r.text)
     if len(captchaID) == 0:
         print('\n获取captchaID 失败\n')
@@ -108,7 +112,7 @@ def verifyCaptcha(s,r):
     captchaurl = "https://ua.scu.edu.cn/captcha?captchaId=" + captchaID
     r_captcha = s.get(captchaurl)
     if r_captcha.status_code == requests.codes.ok:
-        with open("captcha/1.png", "wb") as file:
+        with open("captcha/1.png", "wb+") as file:
             file.write(r_captcha.content)
     else:
         print("\n获取验证码失败！\n")
@@ -146,15 +150,18 @@ def getCaptchaID(input):
 def saveCookie(cookie):
     with open('cookies.txt',"a") as file:
         file.writelines(json.dumps(cookie.get_dict()))
+        file.close()
 
 
-def login_getCookie(s):
-    f_name=open("name_password.txt","r")
+def login_getCookie():
+    f_name=open("namepassword.txt","r")
     name_passowrd=f_name.readline()
     while name_passowrd is not None and name_passowrd != '':
+        s = requests.session()
         username=name_passowrd.split(' ')[0].replace("\n", "").replace("\r", "").strip()
         passoword=name_passowrd.split(' ')[1].replace("\n", "").replace("\r", "").strip()
         loginurl = 'https://ua.scu.edu.cn/login'
+        print('学号：'+username)
         prev_time = int(round(time.time() * 1000))
         while True:
             # 每500ms重试一次
@@ -209,14 +216,18 @@ def login_getCookie(s):
             # print(r.headers)
             # print(r.history)
             saveCookie(s.cookies)
-            return "success_savecookies"
+            print(username + ' cookies保存成功')
+            Note(s)
+            # return "success_savecookies"
         elif r.status_code == 302:
             print('\n页面重定向\n')
             # print(r.text)
             # print(r.headers)
             # print(r.history)
             saveCookie(s.cookies)
-            return "success_savecookies"
+            print(username+' cookies保存成功')
+            Note(s)
+            # return "success_savecookies"
         else:
             print('\nget-info 失败\n')
             return 'error_getinfo'
@@ -258,8 +269,7 @@ def Note(useCookie):
             uploadinfo['address'] = oldGeoInfo['formattedAddress']
             uploadinfo['province'] = oldGeoInfo['addressComponent']['province']
             uploadinfo['city'] = oldGeoInfo['addressComponent']['city']
-            uploadinfo['area'] = uploadinfo['province'] + ' ' + uploadinfo['city'] + ' ' + \
-                                 oldGeoInfo['addressComponent']['district']
+            uploadinfo['area'] = uploadinfo['province'] + ' ' + uploadinfo['city'] + ' ' +oldGeoInfo['addressComponent']['district']
             if DEBUG:
                 print("\n uploadinfo is :\n")
                 print(uploadinfo)
@@ -274,16 +284,16 @@ def Note(useCookie):
                 print(json_data)
 
             if isinstance(useCookie, str):
-                r = requests.get(geturl, cookies=json.loads(cookie_str))
+                r = requests.post(uploadurl,data=uploadinfo, cookies=json.loads(cookie_str))
             else:
-                r = useCookie.get(geturl)
+                r = useCookie.post(uploadurl,data=uploadinfo)
 
             if r.status_code == requests.codes.ok:
                 # print(r.text)
                 try:
                     print('\n打卡结果是\n')
                     print(r.json()['m'])
-                    sendemail('\n打卡结果是\n' + r.json()['m'])
+                    sendemail('打卡成功')
                 except ValueError:
                     print('\n邮件服务器返回结果异常\n')
                     sendemail('邮件服务器返回结果异常')
@@ -305,14 +315,15 @@ if __name__ == '__main__':
         'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36',
         'Accept-Language':'zh-CN,zh;q=0.9,en;q=0.8,zh-HK;q=0.7'
     }
+    if not os.path.exists('cookies.txt'):
+        file=open('cookies.txt','w')
+        file.close()
+        
     f_cookie=open('cookies.txt',"r")
     cookie_str=f_cookie.readline()
     if cookie_str is None or cookie_str=='':
-        s=requests.session()
-        res=login_getCookie(s)
-        print(res)
-        if res=="success_savecookies":
-            Note(s)
+        # s=requests.session()
+        login_getCookie()
     else:
         while cookie_str is not None and cookie_str!='':
             Note(cookie_str)
