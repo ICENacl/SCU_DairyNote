@@ -150,6 +150,7 @@ def getCaptchaID(input):
 def saveCookie(cookie):
     with open('cookies.txt',"a") as file:
         file.writelines(json.dumps(cookie.get_dict()))
+        file.write('\n')
         file.close()
 
 
