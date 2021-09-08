@@ -1,9 +1,20 @@
 # SCU DairyNote
 
-作者邮箱：icexyz787@gmail.com
+**作者邮箱：icexyz787@gmail.com**
 
-本程序的目的是实现每日自动打卡，避免每天定闹钟打卡:)
+本程序主要使用Python的[Request](https://docs.python-requests.org/zh_CN/latest/)库来发送Http请求，以达到模拟打卡的目的。
 
-本程序主要使用Python的[Request](https://docs.python-requests.org/zh_CN/latest/)库来发送Http请求
+## 本程序可以具有以下功能
 
-目前主要方式是通过Cokkies来绕开登录。原本的想法是模拟登录，奈何主流的使用tesseract的方法识别验证码正确率过低，因此暂时使用cookies的方法来绕开登录
+1. 通过调用百度API接口，可以实现验证码的识别
+
+2. 通过保存Cookies来避免过多的调用百度API接口（接口次数有限制）
+
+## 程序使用方法
+
+### 相关包的安装
+
+程序中使用到的包如下图所示：
+![Package](img/1.png)
+
+1. Request

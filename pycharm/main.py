@@ -68,17 +68,21 @@ def construct_GeoInfo(oldInfo,adress):
     return  Geo_Info
 
 def sendemail(msg):
-    mail_host = "smtp.qq.com"
-    mail_user = "1783834865@qq.com"
-    mail_pass = "aifxhnqlblazgjff"
+    mail_host = "smtp.qq.com" #以qq邮箱为例
+    #填入你的邮箱
+    mail_user = ""
+    #填入你邮箱的smtp密码
+    mail_pass = ""
 
-    sender = '1783834865@qq.com'
+    #填入你的邮箱的发送人，与上方邮箱一致
+    sender = ''
+    #填入邮件接收人，可以以列表方式定义多个接收人
     receivers = ['a1783834865@gmail.com']
 
     message = MIMEText(msg, 'plain', 'utf-8')
     message['From'] = Header("DiaryNote", 'utf-8')
     message['To']=Header("测试", 'utf-8')
-    subject = 'DairyNote'
+    subject = 'DairyNote' #邮件的主题
     message['Subject'] = Header(subject, 'utf-8')
 
     try:
@@ -119,8 +123,10 @@ def verifyCaptcha(s,r):
         sys.exit()
 
 
+
     """ 你的 APPID AK SK """
-    APP_ID = '24749844'
+    # 百度API平台中的三个参数
+    APP_ID = ''
     API_KEY = 'x9dfGLeHRQ3nryaFFb7gGvh1'
     SECRET_KEY = 'yVbHjXSHatwVV2LhdZFWqcx7O59Dol5l'
 
