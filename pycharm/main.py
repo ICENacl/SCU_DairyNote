@@ -127,8 +127,8 @@ def verifyCaptcha(s,r):
     """ 你的 APPID AK SK """
     # 百度API平台中的三个参数
     APP_ID = ''
-    API_KEY = 'x9dfGLeHRQ3nryaFFb7gGvh1'
-    SECRET_KEY = 'yVbHjXSHatwVV2LhdZFWqcx7O59Dol5l'
+    API_KEY = ''
+    SECRET_KEY = ''
 
     client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
 
